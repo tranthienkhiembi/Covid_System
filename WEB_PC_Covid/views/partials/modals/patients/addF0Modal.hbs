@@ -1,0 +1,86 @@
+<div class="modal" id="addF0" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Thêm F0</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group col-md-10 mx-auto text-center">
+                            <div class="alert alert-danger" role="alert" id="MessageValidateAddF0"></div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-5">
+                            <label for="NameAddF0">Họ tên</label>
+                            <input type="text" class="form-control" id="NameAddF0" name="name" required>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="IdNumber">Số CMND</label>
+                            <input type="text" class="form-control" id="IdNumberAddF0" name="idNumber" required>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="Year">Năm sinh</label>
+                            <input type="number" min="1900" max="2021" class="form-control" id="Year" name="year"
+                                required>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="form-row my-0">
+                        <div class="form-group col-md-12 my-0">
+                            <h4>Nơi ở</h4>
+                        </div>
+                    </div>
+                    <div class="form-row border rounded mb-1">
+                        <div class="form-group col-md-4 ">
+                            <label for="inputProvince">Tỉnh/thành phố</label>
+                            <select id="inputProvince" class="form-control" name="province">
+                                {{#each provinces}}
+                                <option value={{Id}}>{{NameProvince}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputDistrict">Quận/huyện</label>
+                            <select id="inputDistrict" class="form-control" name="district">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputWard">Phường/xã</label>
+                            <select id="inputWard" class="form-control" name="ward">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="form-row my-0">
+                        <div class="form-group col-md-12 my-0">
+                            <h4>Nơi điều trị</h4>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-10">
+                            <select id="inputPlace" class="form-control" name="place">
+                                {{#each hospitals}}
+                                <option value={{Id}}>{{NamePlace}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="submit" class="btn btn-primary" formmethod="post"
+                        formaction="/manager/patients/addF0">Thêm</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
