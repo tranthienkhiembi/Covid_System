@@ -69,7 +69,7 @@ a{
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #ff9966;
+    background: #4bebbb;
 }
 
 #sidebar ul.components {
@@ -90,13 +90,13 @@ a{
 
 #sidebar ul li a:hover {
     color: #fff !important;
-    background: #32c2b4 !important;
+    background: #4bebbb !important;
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff !important;
-    background: #32c2b4 !important;
+    background: #4bebbb !important;
 }
 
 a[data-toggle="collapse"] {
@@ -138,7 +138,7 @@ ul.CTAs {
     width: 30px;
 }
 .bg-linear {
-    background: linear-gradient(-135deg, #c850c0, #4158d0);
+    background: linear-gradient(-135deg, #41F65C, #2ADBD0);
 }
 
 /* ---------------------------------------------------
@@ -156,4 +156,22 @@ ul.CTAs {
         display: none;
     }
 }
-
+.bg-chart{
+    width: 500px;
+    height: 380px;
+    flex-wrap: wrap;
+    display: flex;
+}
+#myChart{
+    border: 2px solid black;
+    box-shadow: #363740 4px 4px 2px 2px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+.magic-color
+{
+    color: rgb(85, 0, 255);
+}
+.card-header{
+    height: 90px;
+}

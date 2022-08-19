@@ -1,4 +1,15 @@
 <div id="content">
+    <div class="card">
+        <div class="card-header">
+            <nav class="navbar navbar-expand-lg bg-linear">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/manager/packets" style="color: white;">Thống kê thông tin</a>
+                    <form class="d-flex" method="get">
+                    </form>
+                </div>
+            </nav>
+        </div>
+<div id="content">
     <div class="row d-flex justify-content-around">
         <div class="col-lg-5 bg-chart">
             <h3>Thống kê số lượng người ở từng trạng thái theo thời gian</h3>
@@ -8,7 +19,7 @@
                 </div>
                 <canvas id="myChart"></canvas>
             {{else}}
-                <canvas id="myChart" data-label="{{labelStatus}}" data-data="{{dataStatus}}"></canvas>
+                <canvas id="myChart" data-label="{{labelStatus}}" data-data="{{dataStatus}}" width="80%", height="50%"></canvas>
             {{/if}}
         </div>
         <div class="col-lg-5 bg-chart">

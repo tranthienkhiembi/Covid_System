@@ -1,10 +1,21 @@
 <!-- Page Content  -->
 <div id="content">
+    <div class="card">
+        <div class="card-header">
+            <nav class="navbar navbar-expand-lg bg-linear">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/manager/packets" style="color: white;">Danh sách người liên quan</a>
+                    <form class="d-flex" method="get">
+                    </form>
+                </div>
+            </nav>
+        </div>
+<div id="content">
     <div class="row">
         <div class="col-md-8 mr-auto">
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2 w-75 search-box" name="search" type="text" placeholder="" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0 btn-search" type="submit"
+                <button class="btn btn-outline-info my-2 my-sm-0 btn-search" type="submit"
                     formaction="/manager/patients/search">
                     <i class="fa fa-search" aria-hidden="true"></i>
                     Tìm kiếm
@@ -12,9 +23,9 @@
             </form>
         </div>
         <div class="col-md-2">
-            <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" id="addPatient" data-toggle="modal"
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="addPatient" data-toggle="modal"
                 data-target="#addF0">
-                <i class=" fa fa-plus" aria-hidden="true"></i>
+                <i class=" fa fa-user-plus" aria-hidden="true"></i>
                 Thêm F0
             </button>
         </div>
