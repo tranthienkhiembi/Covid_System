@@ -77,7 +77,7 @@ router.get('/', async (req, res) => {
     const isolation = places.filter((place) => place.Role == 0);
     const provinces = await patientModel.loadProvince();
     res.render('manager/patients/list', {
-        title: 'Danh sách người liên quan',
+        title: 'List of people involved',
         active: { patients: true },
         patients: list,
         provinces: provinces,
@@ -130,7 +130,7 @@ router.get('/search', async (req, res) => {
     const isolation = places.filter((place) => place.Role == 0);
     const provinces = await patientModel.loadProvince();
     res.render('manager/patients/list', {
-        title: 'Danh sách người liên quan',
+        title: 'List of people involved',
         active: { patients: true },
         patients: list,
         provinces: provinces,
@@ -219,7 +219,7 @@ router.post('/addF0', async (req, res) => {
     }
     await patientModel.addPaymentAccount(accountPayment);
     res.render('manager/patients/list', {
-        title: 'Danh sách người liên quan',
+        title: 'List of people involved',
         active: { patients: true },
         patients: [],
         provinces: [],
@@ -307,7 +307,7 @@ router.post('/addRelated/:id', async (req, res) => {
 
     await patientModel.addPaymentAccount(accountPayment);
     res.render('manager/patients/list', {
-        title: 'Danh sách người liên quan',
+        title: 'List of people involved',
         active: { patients: true },
         patients: [],
         provinces: [],

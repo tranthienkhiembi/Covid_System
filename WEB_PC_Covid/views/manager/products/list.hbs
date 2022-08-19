@@ -3,11 +3,11 @@
         <div class="card-header">
             <nav class="navbar navbar-expand-lg bg-linear">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/manager/products" style="color: white;">Các sản phẩm nhu yếu phẩm</a>
+                    <a class="navbar-brand" href="/manager/products" style="color: white;">Necessary products</a>
                     <form class="d-flex" method="post">
                         <a class="btn btn-outline-light me-2" role="button" data-bs-toggle="modal"
                             data-bs-target="#addProduct">
-                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            <i class="fa fa-plus-square" aria-hidden="true"></i>
                         </a>
                         
                         <div class="dropdown">
@@ -16,9 +16,9 @@
                                 <i class="fas fa-filter" aria-hidden="true"></i>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <li><a class="dropdown-item" href="/manager/products/filter/byUnitKg">Lọc theo đơn vị kg</a></li>
-                                <li><a class="dropdown-item" href="/manager/products/filter/byCost10k">Lọc theo giá tiền tối thiểu từ 10,000 VNĐ</a></li>
-                                <li><a class="dropdown-item" href="/manager/products/filter/byCost0k">Lọc theo giá tiền tối đa tới 10,000 VNĐ</a></li>
+                                <li><a class="dropdown-item" href="/manager/products/filter/byUnitKg">Filter by kg</a></li>
+                                <li><a class="dropdown-item" href="/manager/products/filter/byCost10k">Filter by minimum price from 10,000 VND</a></li>
+                                <li><a class="dropdown-item" href="/manager/products/filter/byCost0k">Filter by price up to 10,000 VND</a></li>
                             </ul>
                         </div>
                         <div class="dropdown">
@@ -27,8 +27,8 @@
                                 <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="/manager/products/sort/byName">Sắp xếp theo tên</a></li>
-                                <li><a class="dropdown-item" href="/manager/products/sort/byCost">Sắp xếp theo giá tiền</a></li>
+                                <li><a class="dropdown-item" href="/manager/products/sort/byName">Sort by name</a></li>
+                                <li><a class="dropdown-item" href="/manager/products/sort/byCost">Sort by price</a></li>
                             </ul>
                         </div>
                         <input class="form-control me-2 search-box" type="text" name="search" placeholder="Search">
@@ -41,7 +41,7 @@
         </div>
         {{#if this.empty}}
             <div class="card-body">
-                <p class="card-text">Không có dữ liệu.</p>
+                <p class="card-text">No data now.</p>
             </div>
         {{else}}
         <div class="card-body">
@@ -73,15 +73,15 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title text-capitalize">{{NameProduct}}</h5>
-                            <div class="card-text fs-5">Giá tiền: {{format_number Price}} VNĐ</div>
-                            <div class="card-text fs-5">Đơn vị định lượng: {{Unit}}</div>
+                            <div class="card-text fs-5">Price: {{format_number Price}} VNĐ</div>
+                            <div class="card-text fs-5">Quantitative unit: {{Unit}}</div>
                         </div>
                         <div class="card-footer">
                             <a class="btn btn-outline-primary" role="button" title="Edit" data-bs-toggle="modal"
                             data-bs-target="#editProduct{{Id}}">
-                                <i class="far fa-edit" aria-hidden="true"></i>
+                                <i class="fas fa-highlighter" aria-hidden="true"></i>
                             </a>
-                            <a class="btn btn-outline-danger" role="button" data-bs-toggle="modal"
+                            <a class="btn btn-outline-danger location" role="button" data-bs-toggle="modal"
                             data-bs-target="#deleteProduct{{Id}}">
                                 <i class="fas fa-trash" aria-hidden="true"></i>
                             </a>
@@ -97,7 +97,7 @@
                 <ul class="pagination">
                     <li class="page-item  {{#unless can_go_prev}} disabled {{/unless}}">
                     <a class="page-link" href="?page={{prev_value}}" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
+                        <span aria-hidden="true">Previous</span>
                     </a>
                     </li>
                     {{#each this.page_items }}
@@ -111,7 +111,7 @@
                     {{/each}}
                     <li class="page-item  {{#unless can_go_next}} disabled {{/unless}}">
                         <a class="page-link" href="?page={{next_value}}" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
+                            <span aria-hidden="true">Next</span>
                         </a>
                     </li>
                     
@@ -127,27 +127,27 @@
             <div class="modal-content">
                 <form method="post" action="/manager/products/add" enctype="multipart/form-data">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Thêm sản phẩm</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add products</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="form-group mb-2">
-                            <label for="productName">Tên sản phẩm: </label>
+                            <label for="productName">Product's name: </label>
                             <input class="form-control productNameAdd" type="text" name="productName">
                             <div class="checkNameAdd"></div>
                         </div>
                         <div class="form-group mb-2">
-                            <label for="productImage">Hình ảnh: </label>
+                            <label for="productImage">Product pictures: </label>
                             <input class="form-control productImageAdd" type="file" name="productImage" id="productImage" multiple>
                             <div class="checkImageAdd"></div>
                         </div>
                         <div class="form-group mb-2">
-                            <label for="productPrice">Giá tiền: </label>
+                            <label for="productPrice">Price: </label>
                             <input class="form-control productPriceAdd" type="number" name="productPrice">
                             <div class="checkPriceAdd"></div>
                         </div>
                         <div class="form-group mb-2">
-                            <label for="productName">Đơn vị định lượng: </label>
+                            <label for="productName">Quantitative unit: </label>
                             <input class="form-control productUnitAdd" type="text" name="productUnit">
                             <div class="checkUnitAdd"></div>
                         </div>
@@ -178,12 +178,12 @@
                             <div class="checkNameEdit"></div>
                         </div>
                         <div class="form-group mb-2">
-                            <label for="productPrice">Giá tiền: </label>
+                            <label for="productPrice">Price: </label>
                             <input class="form-control productPriceEdit" type="number" name="productPrice" id="productPrice" value="{{Price}}">
                             <div class="checkPriceEdit"></div>
                         </div>
                         <div class="form-group mb-2">
-                            <label for="productUnit">Đơn vị định lượng: </label>
+                            <label for="productUnit">Quantitative unit: </label>
                             <input class="form-control productUnitEdit" type="text" name="productUnit" id="productUnit" value="{{Unit}}">
                             <div class="checkUnitEdit"></div>
                         </div>

@@ -9,21 +9,21 @@
                 <div class="float-right">
                     <a class="btn btn-primary float-right" style="color: white;" id="create-place" href="javascript:;"
                         role="button" title="Add">
-                        <i class="fa fa-plus" aria-hidden="true"></i> Thêm
+                        <i class="fa fa-user-plus" aria-hidden="true"></i> Add
                     </a>
                 </div>
             </div>
         </div>
         {{#if this.empty}}
             <div class="card-body">
-                <p class="card-text">Không có dữ liệu.</p>
+                <p class="card-text">No data now.</p>
             </div>
         {{else}}
             <div class="card-body">
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">STT</th>
+                            <th scope="col">No</th>
                             <th scope="col">Tên</th>
                             <th scope="col">Sức chứa</th>
                             <th scope="col">Số lượng tiếp nhận hiện tại</th>
@@ -39,7 +39,7 @@
                                 <td style="padding-left: 100px">{{Amount}}</td>
                                 <td class="text-right">
                                     <a class="btn btn-primary" href="/admin/places/edit?id={{Id}}&&page={{../page}}" role="button" title="edit">
-                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                        <i class="fa fa-edit" aria-hidden="true"></i>
                                     </a>
                                 </td>
                             </tr>
@@ -52,7 +52,7 @@
             <ul class="pagination mx-auto">
                 <li class="page-item  {{#unless can_go_prev}} disabled {{/unless}}">
                 <a class="page-link" href="?page={{prev_value}}" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
+                    <span aria-hidden="true">Previous</span>
                 </a>
                 </li>
                 {{#each this.page_items }}
@@ -66,7 +66,7 @@
                 {{/each}}
                  <li class="page-item  {{#unless can_go_next}} disabled {{/unless}}">
                      <a class="page-link" href="?page={{next_value}}" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
+                        <span aria-hidden="true">Next</span>
                     </a>
                 </li>
                 

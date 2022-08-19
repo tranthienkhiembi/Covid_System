@@ -4,14 +4,14 @@
             <div class="card-header">
                 <nav class="navbar navbar-expand-lg bg-linear">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="/manager/payment" style="color: white;">Quản lý thanh toán</a>
-                        <button class="btn btn-outline-light ms-2" type="submit" formaction="/manager/payment"><i class="fas fa-user-check "></i>Duyệt</button>
+                        <a class="navbar-brand" href="/manager/payment" style="color: white;">Payment Management</a>
+                        <button class="btn btn-outline-light ms-2" type="submit" formaction="/manager/payment"><i class="fas fa-user-check "></i>Accept</button>
                     </div>
                 </nav>
             </div>
             {{#if this.empty}}
                 <div class="card-body">
-                    <p class="card-text">Không có dữ liệu.</p>
+                    <p class="card-text">No data now.</p>
                 </div>
             {{else}}
             <div class="card-body">
@@ -19,14 +19,14 @@
                     <table class="table table-light table-striped table-hover">
                         <thead>
                             <tr>
-                                <th scope="col-auto">STT</th>
-                                <th scope="col-auto">Tên người mua</th>
-                                <th scope="col-auto">Tên gói nhu yếu phẩm</th>
-                                <th scope="col-auto">Tiền thanh toán</th>
-                                <th scope="col-auto">Ngày mua</th>
-                                <th scope="col-auto">Ngày cuối thanh toán</th>
-                                <th scope="col-auto">Hạn mức tối thiểu </th>
-                                <th scope="col-auto">Gửi thông báo</th>
+                                <th scope="col-auto">No</th>
+                                <th scope="col-auto">Customer name</th>
+                                <th scope="col-auto">Package of necessities</th>
+                                <th scope="col-auto">Payments</th>
+                                <th scope="col-auto">Purchase date</th>
+                                <th scope="col-auto">Last day of payment</th>
+                                <th scope="col-auto">Minimum limit </th>
+                                <th scope="col-auto">Notifications</th>
                             </tr>
                         </thead>
                         

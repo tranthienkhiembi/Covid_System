@@ -3,7 +3,7 @@
         <div class="card-header">
             <nav class="navbar navbar-expand-lg bg-linear">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/manager/packets" style="color: white;">Thống kê thông tin</a>
+                    <a class="navbar-brand" href="/manager/packets" style="color: white;">Statistical</a>
                     <form class="d-flex" method="get">
                     </form>
                 </div>
@@ -12,10 +12,10 @@
 <div id="content">
     <div class="row d-flex justify-content-around">
         <div class="col-lg-5 bg-chart">
-            <h3>Thống kê số lượng người ở từng trạng thái theo thời gian</h3>
+            <h3 class="editfontsize">Statistics of the number of F0, F1, F2, F3 over time</h3>
             {{#if isStatusEmpty}}
                 <div class="alert alert-danger h4" role="alert">
-                Không có dữ liệu
+                No data now
                 </div>
                 <canvas id="myChart"></canvas>
             {{else}}
@@ -23,10 +23,10 @@
             {{/if}}
         </div>
         <div class="col-lg-5 bg-chart">
-            <h3>Thống kê tiêu thụ các gói Nhu yếu phẩm</h3>
+            <h3 class="editfontsize">Statistics of consumption of Necessary packages</h3>
             {{#if isPackageEmpty}}
                 <div class="alert alert-danger h4" role="alert">
-                Không có dữ liệu
+                No data now
                 </div>
                 <canvas id="myChart1"></canvas>
             {{else}}
@@ -36,10 +36,10 @@
     </div>
     <div class="row d-flex justify-content-center mt-2">
         <div class="col-lg-5 bg-chart">
-            <h3>Thống kê dư nợ, thanh toán và số lượng tiêu thụ sản phẩm</h3>
+            <h3 class="editfontsize">Statistics of outstanding balance, payment, consumption</h3>
             {{#if isProductDebtEmpty}}
                 <div class="alert alert-danger h4" role="alert">
-                Không có dữ liệu
+                No data now
                 </div>
                 <canvas id="myChart2"></canvas>
             {{else}}
@@ -63,7 +63,7 @@
 <style>
     .bg-chart{
         border-radius: 10px;
-        background-color: #EEF2FF;
+        background: linear-gradient(-135deg, #81ff94, #7cfff6);
         padding: 10px 20px;
     
     }

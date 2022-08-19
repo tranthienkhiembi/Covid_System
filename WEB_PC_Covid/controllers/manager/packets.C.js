@@ -47,7 +47,7 @@ router.get('/', async (req, res) => {
   
   req.session.pathCur = `/manager/packets`;
   res.render('manager/packets/list', {
-    title: 'Các gói nhu yếu phẩm',
+    title: 'Packages of necessities',
     active: { packets: true },
     allProducts: allProducts,
     packets: list,
@@ -154,7 +154,7 @@ router.get('/sort/byName', async(req, res) => {
   req.session.pathCur = `/manager/packets/sort/byName`;
 
   res.render('manager/packets/list', {
-    title: 'Các gói nhu yếu phẩm',
+    title: 'Packages of necessities',
     active: { packets: true },
     allProducts: allProducts,
     packets: list,
@@ -201,7 +201,7 @@ router.get('/sort/byLimitProducts', async(req, res) => {
   
   req.session.pathCur = `/manager/packets/sort/byLimitProducts`;
   res.render('manager/packets/list', {
-    title: 'Các gói nhu yếu phẩm',
+    title: 'Packages of necessities',
     active: { packets: true },
     allProducts: allProducts,
     packets: list,
@@ -249,7 +249,7 @@ router.get('/sort/byLimitPeople', async(req, res) => {
   
   req.session.pathCur = `/manager/packets/sort/byLimitPeople`;
   res.render('manager/packets/list', {
-    title: 'Các gói nhu yếu phẩm',
+    title: 'Packages of necessities',
     active: { packets: true },
     allProducts: allProducts,
     packets: list,
@@ -296,7 +296,7 @@ router.get('/sort/byLimitTime', async(req, res) => {
   
   req.session.pathCur = `/manager/packets/sort/byLimitTime`;
   res.render('manager/packets/list', {
-    title: 'Các gói nhu yếu phẩm',
+    title: 'Packages of necessities',
     active: { packets: true },
     allProducts: allProducts,
     packets: list,
@@ -344,7 +344,7 @@ router.get('/search', async(req, res) => {
   req.session.activities.push(`${req.user.name} tìm kiếm gói nhu yếu có từ khóa ${search}`);
   req.session.pathCur = `/manager/packets/search?search=${search}`;
   res.render('manager/packets/list', {
-    title: 'Các gói nhu yếu phẩm',
+    title: 'Packages of necessities',
     active: { packets: true },
     allProducts: allProducts,
     packets: list,
@@ -398,7 +398,7 @@ router.get('/filter/byCountMore5', async (req, res) => {
   
   req.session.pathCur = `/manager/packets`;
   res.render('manager/packets/list', {
-    title: 'Các gói nhu yếu phẩm',
+    title: 'Packages of necessities',
     active: { packets: true },
     allProducts: allProducts,
     packets: list,
@@ -452,7 +452,7 @@ router.get('/filter/byCountLess5', async (req, res) => {
   
   req.session.pathCur = `/manager/packets`;
   res.render('manager/packets/list', {
-    title: 'Các gói nhu yếu phẩm',
+    title: 'Packages of necessities',
     active: { packets: true },
     allProducts: allProducts,
     packets: list,

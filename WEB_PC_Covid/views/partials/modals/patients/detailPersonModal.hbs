@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">Chi Tiết Người Liên Quan</h2>
+                <h2 class="modal-title">Contact Person Details</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -12,19 +12,19 @@
                 <div class="modal-body">
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                            <label for="inputEmail4">Họ tên</label>
+                            <label for="inputEmail4">Name</label>
                             <h3>{{Name}}</h3>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputPassword4">Số CMND</label>
+                            <label for="inputPassword4">Identity card number</label>
                             <h3>{{IdNumber}}</h3>
                         </div>
                         <div class="form-group col-md-2">
-                            <label for="inputPassword4">Năm sinh</label>
+                            <label for="inputPassword4">Year of Birth</label>
                             <h3>{{Year}}</h3>
                         </div>
                         <div class="form-group col-md-2">
-                            <label for="inputPassword4">Trạng thái</label>
+                            <label for="inputPassword4">Status</label>
 
                             <select id="inputStatus{{Id}}" class="form-control" name="status">
                                 {{#ifStr Status 3}}
@@ -54,27 +54,27 @@
                     <hr />
                     <div class="form-row my-0">
                         <div class="form-group col-md-12 my-0">
-                            <h4>Nơi ở</h4>
+                            <h4>Accommodation</h4>
                         </div>
                     </div>
                     <div class="form-row border rounded mb-1">
                         <div class="form-group col-md-4 ">
-                            <label for="inputEmail4">Tỉnh/thành phố</label>
+                            <label for="inputEmail4">Province/city</label>
                             <h3>{{address.Province}}</h3>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputPassword4">Quận/huyện</label>
+                            <label for="inputPassword4">District</label>
                             <h3>{{address.District}}</h3>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputPassword4">Phường/xã</label>
+                            <label for="inputPassword4">Wards</label>
                             <h3>{{address.Ward}}</h3>
                         </div>
                     </div>
                     <hr />
                     <div class="form-row my-0">
                         <div class="form-group col-md-12 my-0">
-                            <h4>Nơi điều trị</h4>
+                            <h4>Place of treatment</h4>
                         </div>
                     </div>
                     <div class="form-row">
@@ -88,7 +88,7 @@
                     </div>
                     <div class="form-row my-0">
                         <div class="form-group col-md-12 my-0">
-                            <h4>Danh sách người liên quan</h4>
+                            <h4>List of people involved</h4>
                         </div>
                     </div>
                     <div class="form-row my-0">
@@ -96,10 +96,10 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Họ tên</th>
-                                        <th scope="col">Số CMND</th>
-                                        <th scope="col">Trạng thái</th>
-                                        <th scope="col">Nơi điều trị</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Identity card number</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Place of treatment</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -113,7 +113,7 @@
                                             {{#ifStr Status 1 }}<span
                                                 class="bg-warning text-white rounded p-1">F{{Status}}</span>{{/ifStr}}
                                             {{#ifStr Status 2 }}<span
-                                                class="bg-info text-white rounded p-1">F{{Status}}</span>{{/ifStr}}
+                                                class="bg-primary text-white rounded p-1">F{{Status}}</span>{{/ifStr}}
                                             {{#ifStr Status 3 }}<span
                                                 class="bg-success text-white rounded p-1">F{{Status}}</span>{{/ifStr}}
                                         </td>
@@ -126,7 +126,7 @@
                     </div>
                     <div class="form-row my-0">
                         <div class="form-group col-md-12 my-0">
-                            <h4>Lịch sử quản lí</h4>
+                            <h4>Management history</h4>
                         </div>
                     </div>
                     <div class="form-row my-0">
@@ -134,9 +134,9 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Thời gian</th>
-                                        <th scope="col">Trạng thái</th>
-                                        <th scope="col">Nơi điều trị</th>
+                                        <th scope="col">Time</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Place of treatment</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -158,7 +158,7 @@
                                             {{#ifStr Status 1 }}<span
                                                 class="bg-warning text-white rounded p-1">F{{Status}}</span>{{/ifStr}}
                                             {{#ifStr Status 2 }}<span
-                                                class="bg-info text-white rounded p-1">F{{Status}}</span>{{/ifStr}}
+                                                class="bg-primary text-white rounded p-1">F{{Status}}</span>{{/ifStr}}
                                             {{#ifStr Status 3 }}<span
                                                 class="bg-success text-white rounded p-1">F{{Status}}</span>{{/ifStr}}
                                         </td>
@@ -171,7 +171,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" formaction="/manager/patients/update/{{Id}}" formmethod="post" class="btn btn-primary">Xác nhận</button>
                 </div>
             </form>

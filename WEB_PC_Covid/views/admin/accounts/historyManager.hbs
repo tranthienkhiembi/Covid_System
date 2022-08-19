@@ -17,14 +17,14 @@
         </div>
          {{#if this.empty}}
             <div class="card-body">
-                <p class="card-text">Không có dữ liệu.</p>
+                <p class="card-text">No data now.</p>
             </div>
         {{else}}
             <div class="card-body">
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col">STT</th>
+                        <th scope="col">No</th>
                         <th scope="col">Thời gian bắt đầu</th>
                         <th scope="col">Thời gian kết thúc</th>
                         <th scope="col"></th>
@@ -52,7 +52,7 @@
             <ul class="pagination mx-auto">
                 <li class="page-item  {{#unless can_go_prev}} disabled {{/unless}}">
                 <a class="page-link" href="?id={{id}}&&page={{prev_value}}&&username={{username}}" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
+                    <span aria-hidden="true">Previous</span>
                 </a>
                 </li>
                 {{#each this.page_items }}
@@ -66,7 +66,7 @@
                 {{/each}}
                  <li class="page-item{{#unless can_go_next}} disabled{{/unless}}">
                      <a class="page-link" href="?id={{id}}&&page={{next_value}}&&username={{username}}" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
+                        <span aria-hidden="true">Next</span>
                     </a>
                 </li> 
             </ul>

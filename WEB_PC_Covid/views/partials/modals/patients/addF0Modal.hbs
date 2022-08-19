@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">Thêm F0</h2>
+                <h2 class="modal-title">Add F0</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -16,15 +16,15 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-5">
-                            <label for="NameAddF0">Họ tên</label>
+                            <label for="NameAddF0">Name</label>
                             <input type="text" class="form-control" id="NameAddF0" name="name" required>
                         </div>
                         <div class="form-group col-md-5">
-                            <label for="IdNumber">Số CMND</label>
+                            <label for="IdNumber">Identity card number</label>
                             <input type="text" class="form-control" id="IdNumberAddF0" name="idNumber" required>
                         </div>
                         <div class="form-group col-md-2">
-                            <label for="Year">Năm sinh</label>
+                            <label for="Year">Year of Birth</label>
                             <input type="number" min="1900" max="2021" class="form-control" id="Year" name="year"
                                 required>
                         </div>
@@ -32,12 +32,12 @@
                     <hr />
                     <div class="form-row my-0">
                         <div class="form-group col-md-12 my-0">
-                            <h4>Nơi ở</h4>
+                            <h4>Accommodation</h4>
                         </div>
                     </div>
                     <div class="form-row border rounded mb-1">
                         <div class="form-group col-md-4 ">
-                            <label for="inputProvince">Tỉnh/thành phố</label>
+                            <label for="inputProvince">Province/city</label>
                             <select id="inputProvince" class="form-control" name="province">
                                 {{#each provinces}}
                                 <option value={{Id}}>{{NameProvince}}</option>
@@ -45,14 +45,14 @@
                             </select>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputDistrict">Quận/huyện</label>
+                            <label for="inputDistrict">District</label>
                             <select id="inputDistrict" class="form-control" name="district">
                                 <option selected>Choose...</option>
                                 <option>...</option>
                             </select>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputWard">Phường/xã</label>
+                            <label for="inputWard">Wards</label>
                             <select id="inputWard" class="form-control" name="ward">
                                 <option selected>Choose...</option>
                                 <option>...</option>
@@ -62,7 +62,7 @@
                     <hr />
                     <div class="form-row my-0">
                         <div class="form-group col-md-12 my-0">
-                            <h4>Nơi điều trị</h4>
+                            <h4>Place of treatment</h4>
                         </div>
                     </div>
                     <div class="form-row">
@@ -76,9 +76,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary" formmethod="post"
-                        formaction="/manager/patients/addF0">Thêm</button>
+                        formaction="/manager/patients/addF0">Add</button>
                 </div>
             </form>
         </div>

@@ -4,7 +4,7 @@
         <div class="card-header">
             <nav class="navbar navbar-expand-lg bg-linear">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/manager/packets" style="color: white;">Danh sách người liên quan</a>
+                    <a class="navbar-brand" href="/manager/packets" style="color: white;">List of people involved</a>
                     <form class="d-flex" method="get">
                     </form>
                 </div>
@@ -18,7 +18,7 @@
                 <button class="btn btn-outline-info my-2 my-sm-0 btn-search" type="submit"
                     formaction="/manager/patients/search">
                     <i class="fa fa-search" aria-hidden="true"></i>
-                    Tìm kiếm
+                    Search
                 </button>
             </form>
         </div>
@@ -26,7 +26,7 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="addPatient" data-toggle="modal"
                 data-target="#addF0">
                 <i class=" fa fa-user-plus" aria-hidden="true"></i>
-                Thêm F0
+                Add F0
             </button>
         </div>
     </div>
@@ -35,10 +35,10 @@
             <table id="dtBasicExample" class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">Họ tên</th>
-                        <th scope="col">Số CMND</th>
-                        <th scope="col">Trạng thái</th>
-                        <th scope="col">Nơi điều trị</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Identity card number</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Place of treatment</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -53,18 +53,18 @@
                             {{#ifStr Status 1 }}<span
                                 class="bg-warning text-white rounded p-1">F{{Status}}</span>{{/ifStr}}
                             {{#ifStr Status 2 }}<span
-                                class="bg-info text-white rounded p-1">F{{Status}}</span>{{/ifStr}}
+                                class="bg-primary text-white rounded p-1">F{{Status}}</span>{{/ifStr}}
                             {{#ifStr Status 3 }}<span
                                 class="bg-success text-white rounded p-1">F{{Status}}</span>{{/ifStr}}
                         </td>
                         <td>{{Place.NamePlace}}</td>
                         <td>
                             <button class="btn btn-sm p-0" data-toggle="modal" data-target="#detailPatient{{Id}}">
-                                <i class="fa fa-search" aria-hidden="true"></i>
+                                <i class="fa fa-user-circle" aria-hidden="true"></i>
                             </button>
                             {{#ifNotStr Status 3}}
                             <button class="btn btn-sm p-0" data-toggle="modal" data-target="#addRelatedPatient{{Id}}">
-                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                <i class="fa fa-user-plus" aria-hidden="true"></i>
                             </button>
                             {{/ifNotStr}}
                         </td>
@@ -79,7 +79,7 @@
             <ul class="pagination">
                 <li class="page-item  {{#unless can_go_prev}} disabled {{/unless}}">
                     <a class="page-link" href="?page={{prev_value}}" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
+                        <span aria-hidden="true">Previous</span>
                     </a>
                 </li>
                 {{#each this.page_items }}
@@ -94,7 +94,7 @@
                 {{/each}}
                 <li class="page-item  {{#unless can_go_next}} disabled {{/unless}}">
                     <a class="page-link" href="?page={{next_value}}" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
+                        <span aria-hidden="true">Next</span>
                     </a>
                 </li>
 

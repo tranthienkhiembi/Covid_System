@@ -171,6 +171,9 @@ iframe {
   background: #9053c7;
   background: linear-gradient(-135deg, #41F65C, #2ADBD0);
 }
+.video-wrap {
+  z-index: -100;
+}
 
 .wrap-login100 {
   width: 960px;

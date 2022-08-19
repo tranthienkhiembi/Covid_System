@@ -63,7 +63,7 @@ router.get('/', async (req, res) => {
 
     req.session.pathCur = `/manager/report`;
     res.render('manager/report/list', {
-        title: 'Thống kê thông tin',
+        title: 'Statistical',
         active: { report: true },
         labelStatus: '["F0", "F1", "F2", "F3"]',
         dataStatus: newStatusArr,

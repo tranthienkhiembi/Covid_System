@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">Thêm Người Liên Quan</h2>
+                <h2 class="modal-title">Add Related Person</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -17,20 +17,20 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                            <label for="NameRelated{{Id}}">Họ tên</label>
+                            <label for="NameRelated{{Id}}">Name</label>
                             <input type="text" class="form-control" id="NameRelated{{Id}}" name="name" required>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="IdNumberRelated{{Id}}">Số CMND</label>
+                            <label for="IdNumberRelated{{Id}}">Identity card number</label>
                             <input type="text" class="form-control" id="IdNumberRelated{{Id}}" name="idNumber" required>
                         </div>
                         <div class="form-group col-md-2">
-                            <label for="Year">Năm sinh</label>
+                            <label for="Year">Year of Birth</label>
                             <input type="number" min="1900" max="2021" class="form-control" id="Year" name="year"
                                 required>
                         </div>
                         <div class="form-group col-md-2">
-                            <label for="inputPassword4">Trạng thái</label>
+                            <label for="inputPassword4">Status</label>
                             {{#ifStr Status 0}}
                             <select id="inputStatus" name="status" class="form-control">
                                 <option value="1">F1</option>
@@ -54,12 +54,12 @@
                     <hr />
                     <div class="form-row my-0">
                         <div class="form-group col-md-12 my-0">
-                            <h4>Nơi ở</h4>
+                            <h4>Accommodation</h4>
                         </div>
                     </div>
                     <div class="form-row border rounded mb-1">
                         <div class="form-group col-md-4 ">
-                            <label for="inputEmail4">Tỉnh/thành phố</label>
+                            <label for="inputEmail4">Province/city</label>
                             <select id="inputState" class="form-control" name="province">
                                 {{#each ../provinces}}
                                 <option value={{Id}}>{{NameProvince}}</option>
@@ -67,14 +67,14 @@
                             </select>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputPassword4">Quận/huyện</label>
+                            <label for="inputPassword4">District</label>
                             <select id="inputState" class="form-control" name="district">
                                 <option selected>Choose...</option>
                                 <option>...</option>
                             </select>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputPassword4">Phường/xã</label>
+                            <label for="inputPassword4">Wards</label>
                             <select id="inputState" class="form-control" name="ward">
                                 <option selected>Choose...</option>
                                 <option>...</option>
@@ -84,7 +84,7 @@
                     <hr />
                     <div class="form-row my-0">
                         <div class="form-group col-md-12 my-0">
-                            <h4>Nơi cách li</h4>
+                            <h4>Isolation place</h4>
                         </div>
                     </div>
                     <div class="form-row">
@@ -100,7 +100,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary" formmethod="post"
                         formaction="/manager/patients/addRelated/{{Id}}">Thêm</button>
                 </div>

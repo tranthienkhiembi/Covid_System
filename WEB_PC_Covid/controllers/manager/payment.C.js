@@ -32,7 +32,7 @@ router.get('/', async (req, res) => {
 
   req.session.pathCur = `/manager/payment`;
   res.render('manager/payment/list', {
-    title: 'Quản lí thanh toán',
+    title: 'Payment Management',
     active: { payment: true },
     consume: cs,
   });
@@ -90,7 +90,7 @@ router.post('/', async (req, res) => {
   }
 
   res.render('manager/payment/list', {
-    title: 'Quản lí thanh toán',
+    title: 'Payment Management',
     active: { payment: true },
     consume: cs,
   });

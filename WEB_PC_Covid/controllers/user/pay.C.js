@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
   }
 
   res.render('user/pay/pay', {
-    title: 'Quản lý thanh toán',
+    title: 'Payment Management',
     active: { pay: true },
     consume: cs,
     empty: cs.length === 0
