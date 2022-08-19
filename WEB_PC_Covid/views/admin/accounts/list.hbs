@@ -1,10 +1,10 @@
 <div id="account">
-    <div class="card" style="border: black solid 2px;">
+    <div class="card" style="border: #309c93 solid 3px;">
         <div class="card-header text-center bg-linear">
             <div class="row align-items-center">
                 <div class="mx-auto pl-5">
-                    <i class="fa fa-user" aria-hidden="true" style="font-size: 25px;"></i>
-                    <b style="font-size: 25px;">Quản lí tài khoản</b>
+                    <i class="fa fa-list-alt" aria-hidden="true" style="font-size: 25px;"></i>
+                    <b style="font-size: 25px;">Account management</b>
                 </div>
                 <div class="float-right">
                     <a class="btn btn-primary float-right" style="color:white;" id="create-user" href="javascript:;"
@@ -15,7 +15,7 @@
             </div>
         </div>
          {{#if this.empty}}
-            <div class="card-body">
+            <div class="card-body"> 
                 <p class="card-text">No data now.</p>
             </div>
         {{else}}
@@ -24,8 +24,8 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">No</th>
-                        <th scope="col">Tên tài khoản</th>
-                        <th scope="col">Chức vụ</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Position</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
@@ -36,12 +36,13 @@
                         <td>{{Username}}</td>
                         <td> Manager </td>
                         <td class="text-right">
-                            <a class="btn btn-primary" href="/admin/accounts/history?id={{Id}}&&page={{../page}}&&username={{Username}}" role="button" title="Watch">
+                            <a class="btn btn-info" href="/admin/accounts/history?id={{Id}}&&page={{../page}}&&username={{Username}}" role="button" title="Watch">
                                 <i class="far fa-eye" aria-hidden="true"></i>
                             </a>
-                            <a class="btn btn-{{#ifStr LockUp 0}}primary{{else}}danger{{/ifStr}}" href="/admin/accounts/lock?id={{Id}}&&lockUp={{LockUp}}&&page={{../page}}" role="button" title="lock up">
+                            <a class="btn btn-{{#ifStr LockUp 0}}warning{{else}}danger{{/ifStr}}" href="/admin/accounts/lock?id={{Id}}&&lockUp={{LockUp}}&&page={{../page}}" role="button" title="lock up">
                                 {{!-- <i class="fa fa-key" aria-hidden="true"></i> --}}
-                                <img style="width:16px; height:16px" src="https://img.icons8.com/material-outlined/50/000000/lock--v1.png"/>
+                                <img style="width:16px; height:16px" src="https://img.icons8.com/ios-glyphs/30/1A1A1A/lock--v1.png"/>
+        
                             </a>
                         </td>
                     </tr>

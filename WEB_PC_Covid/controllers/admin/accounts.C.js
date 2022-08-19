@@ -39,7 +39,7 @@ router.get('/', async (req, res) => {
     req.session.pathCur = `/admin/accounts?page=${page}`;
     
     res.render('admin/accounts/list', {
-        title: 'Quản lí tài khoản',
+        title: 'Account management',
         active: { accounts: true },
         accounts: list,
         empty: list.length === 0,
@@ -136,7 +136,7 @@ router.get('/history', async (req, res) => {
     }
     req.session.pathCur = `/admin/accounts/history?id=${id}&&page=${page}&&username=${req.query.username}`;
     res.render('admin/accounts/historyManager', {
-        title: 'Quản lí tài khoản',
+        title: 'Account management',
         active: { accounts: true },
         activityHistories: list,
         empty: list.length === 0,
@@ -183,7 +183,7 @@ router.get('/history/active', async (req, res) => {
 
     req.session.pathCur = `/admin/accounts`;
     res.render('admin/accounts/managerActivity', {
-        title: 'Quản lí tài khoản',
+        title: 'Account management',
         active: { accounts: true },
         activityManagers: list,
         empty: list.length === 0,
