@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
 
   res.render('user/packages/buyPackages', {
     Package: list,
-    title: 'Mua gói nhu yếu phẩm',
+    title: 'Buy packages of necessities',
     active: { buyPackages: true },
     page_items: page_items,
     prev_value: page - 1,
@@ -63,8 +63,7 @@ router.get('/:Id', async (req, res) => {
     packageDetail: data,
     Package: p,
     product: list,
-    //totalPrice: req.session.totalPrice,
-    title: 'Chi tiết gói nhu yếu phẩm',
+    title: 'Details of package',
     active: { buyPackages: true },
   });
 });
@@ -95,7 +94,7 @@ router.post('/search', async (req, res) => {
 
   res.render('user/packages/buyPackages', {
     Package: list,
-    title: 'Mua gói nhu yếu phẩm',
+    title: 'Buy packages of necessities',
     active: { buyPackages: true },
     page_items: page_items,
     prev_value: page - 1,
@@ -133,9 +132,8 @@ router.post('/quantity', async (req, res) => {
       Package: p,
       product: list,
       totalPrice: totalP,
-      title: 'Chi tiết gói nhu yếu phẩm',
-      //active: { buyPackages: true },
-      msg: `Số lượng sản phẩm trong gói phải lớn hơn ${limitProduct}!`,
+      title: 'Package detail',
+      msg: `Number of product above ${limitProduct}!`,
     });
   }
 
@@ -145,9 +143,8 @@ router.post('/quantity', async (req, res) => {
       Package: p,
       product: list,
       totalPrice: totalP,
-      title: 'Chi tiết gói nhu yếu phẩm',
-      //active: { buyPackages: true },
-      msg: 'Tổng số gói chọn không trùng với Quantity!',
+      title: 'Package detail',
+      msg: 'Valid',
     });
   }
   const CountPackage = await Consume.countCondition(IdPackage, req.user.Id);
@@ -158,8 +155,8 @@ router.post('/quantity', async (req, res) => {
       Package: p,
       product: list,
       totalPrice: totalP,
-      title: 'Chi tiết gói nhu yếu phẩm',
-      msg: 'Số lượng mua vượt quá giới hạn!',
+      title: 'Package detail',
+      msg: 'Over limit',
     });
 });
 
@@ -193,7 +190,7 @@ router.post('/paylater', async (req, res) => {
     IdPackage: IdPackage,
     Time: dateTime,
     Price: totalP,
-    Status: 'Chưa thanh toán',
+    Status: 'Unpaid',
     CreditLimit: 50000,
   };
 
