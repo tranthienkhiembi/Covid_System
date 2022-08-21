@@ -1,15 +1,15 @@
 <div id="content">
-    <div class="card" style="margin-top: -120px;">
+    <div class="card" style="margin-top: 40px;">
         <div class="card-header">
             <link rel="stylesheet" href="/assets/css/tooplate-main.css">
             <!-- Items Starts Here -->
-            <div class="featured-page">
+            <div class="featured-page" style="margin-top: -5px">
                 <div class="container">
-                    <div class="row navbar navbar-expand-lg bg-linear">
+                    <div class="row navbar navbar-expand-lg bg-linear" >
                         <div class="col-md-4 col-sm-12">
                             <div class="section-heading">
                                 <div class="line-dec"></div>
-                                <h1>GÓI NHU YẾU PHẨM</h1>
+                                <h1>Package of necessities</h1>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-12">
@@ -25,12 +25,10 @@
                         </div>
                     </div>
                 </div>
-                <hr>
             </div>
         </div>
         <div class="card-body">
             <div class="row d-flex flex-row">
-                <!-- **#each this.products ** -->
                 {{#each this.Package}}
                 <div class="col-lg-4 mb-3">
                     <a href="/user/buyPackages/{{Id}}">
