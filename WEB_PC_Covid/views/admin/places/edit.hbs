@@ -1,7 +1,7 @@
 <div id="content" style="margin:40px 200px 40px;">
-    <div class="card border border-dark" >
-  <div class="card-header text-center">
-    <h4>Chỉnh sửa địa điểm</h4>
+    <div class="card border" style="border: #7af1e7 solid 3px; background-color:#7af1e7; border-radius:20px" >
+  <div class="card-header text-center bg-linear" style="border-top-left-radius: 20px; border-top-right-radius: 20px">
+    <h4 ="font-size: 25px;"><strong>Edit location</strong></h4>
   </div>
   <div class="card-body">
     <form method="POST">
@@ -17,7 +17,7 @@
         />
       </div>
       <div class="form-group">
-        <label for="txtNamePlace">Tên địa điểm</label>
+        <label for="txtNamePlace">Place name</label>
         <input
           type="text"
           class="form-control"
@@ -30,7 +30,7 @@
         />
       </div>
       <div class="form-group {{#if error}}ui-state-error{{/if}}">
-        <label for="txtSize">Sức chứa</label>
+        <label for="txtSize">Capacity</label>
         <input
           type="number"
           class="form-control"
@@ -41,9 +41,9 @@
       </div>
 
        <div class="form-group {{#if error}}ui-state-error{{/if}}">
-        <label for="txtAmount">Số lượng tiếp nhận hiện tại</label>
+        <label for="txtAmount">Current number of patients</label>
         {{#if error}}
-            <h6 style="color: red;">Lỗi: Số lượng tiếp nhận hiện tại < sức chứa</h6>
+            <h6 style="color: red;">Error: Current number of patients > Capacity</h6>
         {{/if}}
         <input
           type="number"
@@ -55,7 +55,7 @@
         />
       </div>
        <div class="form-group">
-        <label for="txtRole">Khu (0: Cách ly, 1: Điều trị)</label>
+        <label for="txtRole">Area <span style="color: orange;">(0: Isolation, 1: Treatment)</span></label>
         <input
           type="number"
           class="form-control"
@@ -66,22 +66,19 @@
         />
       </div>
       <a
-        class="btn btn-success"
+        class="btn btn-primary"
         href="/admin/places?page={{page}}"
         title="Back to list"
         role="button"
       >
-        <i class="fa fa-backward" aria-hidden="true"></i>
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
       </a>
-      <button type="submit" class="btn btn-primary"
+      <button type="submit" class="btn btn-success"
       title="update" formaction="/admin/places/update?page={{page}}">
-        <i class="fa fa-check" aria-hidden="true"></i>
+        <i class="fa fa-floppy-o" aria-hidden="true"></i>
         Save
       </button>
     </form>
-  </div>
-  <div class="card-footer text-muted">
-    Footer
   </div>
 </div>
 </div>

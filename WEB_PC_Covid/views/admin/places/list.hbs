@@ -1,6 +1,6 @@
 <div id="content" style="margin:25px 50px 25px;">
-    <div class="card" style="border: black solid 2px;">
-        <div class="card-header text-center bg-linear">
+    <div class="card" style="border: #7af1e7 solid 3px; background-color:#7af1e7; border-radius:20px">
+        <div class="card-header text-center bg-linear" style="border-top-left-radius: 20px; border-top-right-radius: 20px">
             <div class="row align-items-center">
                 <div class="mx-auto pl-5">
                    <i class="fas fa-clinic-medical" aria-hidden="true" style="font-size: 25px;"></i>
@@ -9,7 +9,7 @@
                 <div class="float-right">
                     <a class="btn btn-primary float-right" style="color: white;" id="create-place" href="javascript:;"
                         role="button" title="Add">
-                        <i class="fa fa-user-plus" aria-hidden="true"></i> Add
+                        <i class="fa fa-search-plus" aria-hidden="true"></i> Add
                     </a>
                 </div>
             </div>
@@ -24,9 +24,9 @@
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Year</th>
+                            <th scope="col">Name</th>
                             <th scope="col">Capacity</th>
-                            <th scope="col">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCurrent reception</th>
+                            <th scope="col">Current number of patients</th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
@@ -39,7 +39,7 @@
                                 <td style="padding-left: 100px">{{Amount}}</td>
                                 <td class="text-right">
                                     <a class="btn btn-primary" href="/admin/places/edit?id={{Id}}&&page={{../page}}" role="button" title="edit">
-                                        <i class="fa fa-edit" aria-hidden="true"></i>
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>
                                     </a>
                                 </td>
                             </tr>
@@ -75,27 +75,27 @@
     </div>
     
 </div>
-<div id="dialog-form" title="Tạo địa điểm mới" style="display: none;">
-        <p class="validateTips">Điền các trường được yêu cầu</p>
+<div id="dialog-form" title="Create a new management location" style="background-color: #4bebbb; border-radius:5px">
+        <p class="validateTips" >Enter all required information.</p>
         <form method="POST">
             <fieldset>
-            <label for="placeName">Tên địa điểm</label>
+            <label for="placeName">Place name</label>
             <input type="text" name="placeName" id="placeName" class="text ui-widget-content ui-corner-all" autofocus>
-            <label for="capacity">Sức chứa</label>
+            <label for="capacity">Capacity</label>
             <input type="number" name="capacity" id="capacity" class="text ui-widget-content ui-corner-all">
-            <label for="number">Số lượng tiếp nhận hiện tại</label>
+            <label for="number">Current number of patients</label>
             <input type="number" name="number" id="number" class="text ui-widget-content ui-corner-all">
              <div class="row  ml-3">
                 <div class="form-check ml-5">
                     <input class="form-check-input" type="radio" name="gridRadios" value="1" checked>
                     <label class="form-check-label" for="gridRadios">
-                        Điều trị
+                        Treatment
                     </label>
                 </div>
                     <div class="form-check ml-3">
                     <input class="form-check-input" type="radio" name="gridRadios" value="0">
                     <label class="form-check-label" for="gridRadios">
-                        Cách ly
+                        Isolation
                     </label>
                 </div>
             </div>
@@ -180,11 +180,11 @@
                 var valid = true;
                 allFields.removeClass("ui-state-error");
 
-                valid = valid && checkRegexp(placeName, /^\S*[AĂÂÁẮẤÀẰẦẢẲẨÃẴẪẠẶẬĐEÊÉẾÈỀẺỂẼỄẸỆIÍÌỈĨỊOÔƠÓỐỚÒỒỜỎỔỞÕỖỠỌỘỢUƯÚỨÙỪỦỬŨỮỤỰYÝỲỶỸỴAĂÂÁẮẤÀẰẦẢẲẨÃẴẪẠẶẬĐEÊÉẾÈỀẺỂẼỄẸỆIÍÌỈĨỊOÔƠÓỐỚÒỒỜỎỔỞÕỖỠỌỘỢUƯÚỨÙỪỦỬŨỮỤỰYÝỲỶỸỴAĂÂÁẮẤÀẰẦẢẲẨÃẴẪẠẶẬĐEÊÉẾÈỀẺỂẼỄẸỆIÍÌỈĨỊOÔƠÓỐỚÒỒỜỎỔỞÕỖỠỌỘỢUƯÚỨÙỪỦỬŨỮỤỰYÝỲỶỸỴAĂÂÁẮẤÀẰẦẢẲẨÃẴẪẠẶẬĐEÊÉẾÈỀẺỂẼỄẸỆIÍÌỈĨỊOÔƠÓỐỚÒỒỜỎỔỞÕỖỠỌỘỢUƯÚỨÙỪỦỬŨỮỤỰYÝỲỶỸỴAĂÂÁẮẤÀẰẦẢẲẨÃẴẪẠẶẬĐEÊÉẾÈỀẺỂẼỄẸỆIÍÌỈĨỊOÔƠÓỐỚÒỒỜỎỔỞÕỖỠỌỘỢUƯÚỨÙỪỦỬŨỮỤỰYÝỲỶỸỴAĂÂÁẮẤÀẰẦẢẲẨÃẴẪẠẶẬĐEÊÉẾÈỀẺỂẼỄẸỆIÍÌỈĨỊOÔƠÓỐỚÒỒỜỎỔỞÕỖỠỌỘỢUƯÚỨÙỪỦỬŨỮỤỰYÝỲỶỸỴA-Z]+\S*/i, "Tên địa điểm có thể bao gồm a-z, 0-9, dấu cách và phải bắt đầu bằng một chữ cái.");
+                valid = valid && checkRegexp(placeName, /^\S*[AĂÂÁẮẤÀẰẦẢẲẨÃẴẪẠẶẬĐEÊÉẾÈỀẺỂẼỄẸỆIÍÌỈĨỊOÔƠÓỐỚÒỒỜỎỔỞÕỖỠỌỘỢUƯÚỨÙỪỦỬŨỮỤỰYÝỲỶỸỴAĂÂÁẮẤÀẰẦẢẲẨÃẴẪẠẶẬĐEÊÉẾÈỀẺỂẼỄẸỆIÍÌỈĨỊOÔƠÓỐỚÒỒỜỎỔỞÕỖỠỌỘỢUƯÚỨÙỪỦỬŨỮỤỰYÝỲỶỸỴAĂÂÁẮẤÀẰẦẢẲẨÃẴẪẠẶẬĐEÊÉẾÈỀẺỂẼỄẸỆIÍÌỈĨỊOÔƠÓỐỚÒỒỜỎỔỞÕỖỠỌỘỢUƯÚỨÙỪỦỬŨỮỤỰYÝỲỶỸỴAĂÂÁẮẤÀẰẦẢẲẨÃẴẪẠẶẬĐEÊÉẾÈỀẺỂẼỄẸỆIÍÌỈĨỊOÔƠÓỐỚÒỒỜỎỔỞÕỖỠỌỘỢUƯÚỨÙỪỦỬŨỮỤỰYÝỲỶỸỴAĂÂÁẮẤÀẰẦẢẲẨÃẴẪẠẶẬĐEÊÉẾÈỀẺỂẼỄẸỆIÍÌỈĨỊOÔƠÓỐỚÒỒỜỎỔỞÕỖỠỌỘỢUƯÚỨÙỪỦỬŨỮỤỰYÝỲỶỸỴAĂÂÁẮẤÀẰẦẢẲẨÃẴẪẠẶẬĐEÊÉẾÈỀẺỂẼỄẸỆIÍÌỈĨỊOÔƠÓỐỚÒỒỜỎỔỞÕỖỠỌỘỢUƯÚỨÙỪỦỬŨỮỤỰYÝỲỶỸỴA-Z]+\S*/i, "Place names can include a-z, 0-9, spaces and must start with a letter.");
 
-                valid = valid && checkRegexp(capacity, /\d/, "Điền thông tin sức chứa.");
-                valid = valid && checkRegexp(number, /\d/, "Điền thông tin số lượng hiện tại.");
-                valid = valid && checkNumber(capacity, number, "Số lương tiếp nhận phải nhỏ hơn sức chứa.");
+                valid = valid && checkRegexp(capacity, /\d/, "Fill in capacity information.");
+                valid = valid && checkRegexp(number, /\d/, "Fill in the current quantity information.");
+                valid = valid && checkNumber(capacity, number, "The receiving salary must be less than the capacity.");
                 
                 if (valid) {
                      $.ajax({
@@ -204,7 +204,7 @@
                             }
                             else{
                                 placeName.addClass("ui-state-error");
-                                updateTips("Địa điểm đã tồn tại.");
+                                updateTips("Location already exists.");
                             }
                         }                
                     });
@@ -219,22 +219,22 @@
                 modal: true,
                 buttons: {
                     CreatePlace:{ 
-                            class: "CreateButton btn btn-primary",
+                            class: "CreateButton btn btn-success",
                             text: "Create",
                             click : addPlace
                     },
                     Cancel: {
-                        class: "CancelButton btn btn-primary",
+                        class: "CancelButton btn btn-danger",
                         text: "Cancel",
                         click: function() {
-                            tips.text("Điền các trường được yêu cầu.");
+                            tips.text("Enter all required information");
                             dialog.dialog("close");
                         }  
                     }
                 },
                 close: function() {
                     form[0].reset();
-                    tips.text("Điền các trường được yêu cầu.");
+                    tips.text("Enter all required information");
                     allFields.removeClass("ui-state-error");
                 }
             });

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Login Pc covid</title>
+    <title>Login Covid-19 management</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" href="login/images/icons/favicon.ico" />
@@ -34,14 +34,14 @@
       <div class="container-login100">
         <div class="wrap-login100">
           <div class="login100-pic js-tilt">
-            <img src="assets/login/images/img-01.png" alt="IMG" />
+            <img src="assets/login/images/icon_log.png" alt="IMG" />
           </div>
           <form method="POST" active="/signin" class="login100-form validate-form">
             <span class="login100-form-title">
                 {{#if firstSignin}}
-                    Đăng kí Admin
+                    <strong>Register Admin</strong>
                 {{else}} 
-                    Đăng nhập PC Covid
+                    <strong>Login to Covid-19 management</strong>
                  {{/if}}
             </span>
             {{#if errorSystem}}
@@ -55,7 +55,7 @@
                 class="input100"
                 type="text"
                 name="username"
-                placeholder="Tên tài khoản"
+                placeholder="Account name"
               />
               <span class="symbol-input100">
                <i class="fa fa-user" aria-hidden="true"></i>
@@ -69,7 +69,7 @@
                 class="input100"
                 type="password"
                 name="password"
-                placeholder="Mật khẩu"
+                placeholder="Password"
               />
               <span class="symbol-input100">
                 <i class="fa fa-lock" aria-hidden="true"></i>
@@ -84,19 +84,19 @@
                     class="input100"
                     type="password"
                     name="verifyPass"
-                    placeholder="Xác nhận mật khẩu"
+                    placeholder="Confirm password"
                 />
                 <span class="symbol-input100">
                     <i class='fas fa-check' aria-hidden='true'></i>
                 </span>
                 </div>
-                <label for="securityQuestion">Câu hỏi bảo mật
+                <label for="securityQuestion">Security question
                 <select id="securityQuestion" name="securityQuestion">
                     <option value="securityQuestion1">
-                    Chứng minh nhân dân của mẹ bạn???
+                    Your favorite dish?
                     </option>
                     <option value="securityQuestion2">
-                    Chứng minh nhân dân của ba bạn???
+                    What do you enjoy most in your leisure time?
                     </option>
                 </select>
                 </label>
@@ -105,44 +105,15 @@
                 <input type="text" name="securityAnswer" required />
 
                 <div class="container-login100-form-btn">
-                    <button class="login100-form-btn" formaction="/register">Đăng kí</button>
+                    <button class="login100-form-btn" formaction="/register">Register</button>
                 </div>
                 {{else}}
-                {{!-- <div class="d-flex justify-content-center">
-                    <fieldset class="form-group">
-                        <div class="row">
-                            <div class="form-check mr-3">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios" value="1" checked>
-                                <label class="form-check-label" for="gridRadios">
-                                    Người dùng
-                                </label>
-                            </div>
-                            <div class="form-check ml-2">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios" value="2">
-                                <label class="form-check-label" for="gridRadios">
-                                    Quản trị
-                                </label>
-                            </div>
-                            <div class="form-check ml-3">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios" value="3">
-                                <label class="form-check-label" for="gridRadios">
-                                    Quản lí
-                                </label>
-                            </div>
-                        </div>
-                    </fieldset>
-                </div> --}}
-                {{!-- {{#if errorRole}}
-                	  </div>
-                <div class="page-hero d-flex align-items-center justify-content-center"><h5 style="font-family: Poppins-Medium; color:red;">{{message}}</h5></div>
-                {{/if}} --}}
                
                 <div class="container-login100-form-btn" >
-                    <button class="login100-form-btn">Đăng nhập</button>
+                    <button class="login100-form-btn">Sign in</button>
                 </div>
-                <div class="text-center p-t-12">
-                    <span class="txt1"> Quên </span>
-                    <a class="txt2" href="/forgotPass"> mật khẩu </a>
+                <div class="text-center p-t-12"><strong>
+                    <a class="txt2" href="/forgotPass">Forgot Password</a></strong>
                 </div>
 
             {{/if}}
