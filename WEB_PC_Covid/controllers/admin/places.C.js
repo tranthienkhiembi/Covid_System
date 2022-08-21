@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
 
     req.session.pathCur = `/admin/places?page=${page}`;
     res.render('admin/places/list', {
-        title: 'Quản lí đại điểm',
+        title: 'Location management',
         active: { places: true },
         places: list,
         empty: list.length === 0,
@@ -85,7 +85,7 @@ router.get('/edit', async (req, res) => {
     
     req.session.pathCur = `/admin/places/edit?id=${ID}&&page=${page}`;
     res.render('admin/places/edit', {
-        title: 'Quản lí đại điểm',
+        title: 'Location management',
         active: { places: true },
         place: data,
         page,
@@ -105,7 +105,7 @@ router.post('/update', async (req, res) => {
     
     if (parseInt(req.body.txtSize) < parseInt(req.body.txtAmount))
         return res.render('admin/places/edit', {
-            title: 'Quản lí đại điểm',
+            title: 'Location management',
             active: { places: true },
             place,
             page,
