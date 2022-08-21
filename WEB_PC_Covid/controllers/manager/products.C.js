@@ -37,7 +37,7 @@ router.get('/', async(req, res) => {
   req.session.activities.push(`${req.user.name} xem danh sách các sản phẩm nhu yếu`);
   req.session.pathCur = `/manager/products`;
   res.render('manager/products/list', {
-    title: 'Danh sách Necessary products',
+    title: 'Necessary products',
     active: { products: true },
     products: list,
     empty: list.length===0,
@@ -130,7 +130,7 @@ router.get('/search', async(req, res) => {
     req.session.activities.push(`${req.user.name} tìm kiếm các sản phẩm nhu yếu theo từ khóa ${search}`);
     req.session.pathCur = `/manager/products/search?page=${page}`;
     res.render('manager/products/list', {
-      title: 'Danh sách Necessary products',
+      title: 'Necessary products',
       active: { products: true },
       products: list,
       empty: list.length===0,
@@ -145,7 +145,7 @@ router.get('/search', async(req, res) => {
     req.session.activities.push(`${req.user.name} tìm kiếm các sản phẩm nhu yếu theo từ khóa ${search}`);
     req.session.pathCur = `/manager/products/search?page=${page}`;
     res.render('manager/products/list', {
-      title: 'Danh sách Necessary products',
+      title: 'Necessary products',
       active: { products: true },
       empty: 0,
     });
@@ -183,7 +183,7 @@ router.post('/search', async(req, res) => {
   };
   
   res.render('manager/products/list', {
-    title: 'Danh sách Necessary products',
+    title: 'Necessary products',
     active: { products: true },
     products: list,
     empty: list.length===0,
@@ -228,7 +228,7 @@ router.get('/sort/byName', async(req, res) => {
   req.session.activities.push(`${req.user.name} xem danh sách sản phẩm theo tên`);
   req.session.pathCur = `/manager/products/sort/byName`;
   res.render('manager/products/list', {
-    title: 'Danh sách Necessary products',
+    title: 'Necessary products',
     active: { products: true },
     products: list,
     empty: list.length===0,
@@ -273,7 +273,7 @@ router.get('/sort/byCost', async(req, res) => {
   req.session.activities.push(`${req.user.name} xem danh sách sản phẩm theo giá tiền`);
   req.session.pathCur = `/manager/products/sort/byCost`;
   res.render('manager/products/list', {
-    title: 'Danh sách Necessary products',
+    title: 'Necessary products',
     active: { products: true },
     products: list,
     empty: list.length===0,
@@ -318,7 +318,7 @@ router.get('/filter/byUnitKg', async(req, res) => {
   req.session.activities.push(`${req.user.name} xem danh sách sản phẩm có đơn vị là kg`);
   req.session.pathCur = `/manager/products/filter/byUnitKg`;
   res.render('manager/products/list', {
-    title: 'Danh sách Necessary products',
+    title: 'Necessary products',
     active: { products: true },
     products: list,
     empty: list.length===0,
@@ -363,7 +363,7 @@ router.get('/filter/byCost10k', async(req, res) => {
   req.session.activities.push(`${req.user.name} xem danh sách sản phẩm có giá tối thiểu từ 10,000 VNĐ`);
   req.session.pathCur = `/manager/products/filter/byCost10k`;
   res.render('manager/products/list', {
-    title: 'Danh sách Necessary products',
+    title: 'Necessary products',
     active: { products: true },
     products: list,
     empty: list.length===0,
@@ -408,7 +408,7 @@ router.get('/filter/byCost0k', async(req, res) => {
   req.session.activities.push(`${req.user.name} xem danh sách sản phẩm có giá tối đa 10,000 VNĐ`);
   req.session.pathCur = `/manager/products/filter/byCost0k`;
   res.render('manager/products/list', {
-    title: 'Danh sách Necessary products',
+    title: 'Necessary products',
     active: { products: true },
     products: list,
     empty: list.length===0,

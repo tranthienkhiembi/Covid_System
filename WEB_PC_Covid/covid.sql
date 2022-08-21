@@ -778,10 +778,10 @@ INSERT INTO public."DistrictWard" ("Id", "IdDistrict", "IdWard") OVERRIDING SYST
 -- Data for Name: Package; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public."Package" ("Id", "NamePackage", "LimitProducts", "LimitPeople", "LimitTime", "Introduce") OVERRIDING SYSTEM VALUE VALUES (1, 'Gói 1', 1, 5, 15, NULL);
-INSERT INTO public."Package" ("Id", "NamePackage", "LimitProducts", "LimitPeople", "LimitTime", "Introduce") OVERRIDING SYSTEM VALUE VALUES (2, 'Gói 2', 1, 6, 15, NULL);
-INSERT INTO public."Package" ("Id", "NamePackage", "LimitProducts", "LimitPeople", "LimitTime", "Introduce") OVERRIDING SYSTEM VALUE VALUES (3, 'Gói 3', 1, 4, 15, NULL);
-INSERT INTO public."Package" ("Id", "NamePackage", "LimitProducts", "LimitPeople", "LimitTime", "Introduce") OVERRIDING SYSTEM VALUE VALUES (4, 'Gói 4', 1, 10, 15, NULL);
+INSERT INTO public."Package" ("Id", "NamePackage", "LimitProducts", "LimitPeople", "LimitTime", "Introduce") OVERRIDING SYSTEM VALUE VALUES (1, 'Package 1', 1, 5, 15, NULL);
+INSERT INTO public."Package" ("Id", "NamePackage", "LimitProducts", "LimitPeople", "LimitTime", "Introduce") OVERRIDING SYSTEM VALUE VALUES (2, 'Package 2', 1, 6, 15, NULL);
+INSERT INTO public."Package" ("Id", "NamePackage", "LimitProducts", "LimitPeople", "LimitTime", "Introduce") OVERRIDING SYSTEM VALUE VALUES (3, 'Package 3', 1, 4, 15, NULL);
+INSERT INTO public."Package" ("Id", "NamePackage", "LimitProducts", "LimitPeople", "LimitTime", "Introduce") OVERRIDING SYSTEM VALUE VALUES (4, 'Package 4', 1, 10, 15, NULL);
 
 
 --
@@ -809,8 +809,8 @@ INSERT INTO public."Place" ("Id", "NamePlace", "Size", "Amount", "Role") OVERRID
 -- Data for Name: Product; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (1, 129000, 'thịt heo', 'kg');
-INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (2, 130000, 'cá thu', 'kg');
+INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (1, 129000, 'Thịt heo', 'kg');
+INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (2, 130000, 'Cá thu', 'kg');
 INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (3, 9000, 'Bắp cải trắng', 'kg');
 INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (4, 8000, 'Rau muống', 'kg');
 INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (5, 28000, 'Rau thơm', 'kg');
@@ -819,23 +819,23 @@ INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING S
 INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (8, 13000, 'Khổ qua', 'kg');
 INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (9, 8000, 'Đu đủ xanh', 'kg');
 INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (10, 9000, 'Củ cải trắng', 'kg');
-INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (11, 50000, 'trái cây các loại', 'giỏ');
-INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (12, 2000, 'trứng gà', 'quả');
-INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (13, 11000, 'trứng cút', 'hộp');
+INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (11, 50000, 'Trái cây các loại', 'kg');
+INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (12, 25000, 'Trứng gà', 'box');
+INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (13, 20000, 'Trứng cút', 'box');
 INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (14, 40000, 'Bánh kẹo', 'kg');
-INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (15, 4500, 'muối i-ốt', 'kg');
-INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (16, 7000, 'bột nêm', 'gói');
-INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (17, 19500, 'nước mắm Chinsu', 'chai');
-INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (18, 6000, 'nước tương Tam Thái Tử', 'chai');
-INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (19, 13000, 'đường trắng', 'kg');
-INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (20, 100000, 'dầu ăn', 'bình');
-INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (21, 25000, 'gạo', 'kg');
-INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (22, 106000, 'Mỳ gói Hảo Hảo', 'thùng');
-INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (23, 30000, 'khẩu trang y tế', 'hộp');
-INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (24, 69000, 'Nước rửa tay Lifebuoy chai 500g', 'chai');
-INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (25, 155000, 'Chai xịt khử mùi', 'chai');
-INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (26, 34000, 'Kem đánh răng Colgate', 'hộp');
-INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (27, 35000, 'giấy vệ sinh', 'bịch');
+INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (15, 2000, 'Muối', 'kg');
+INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (16, 15000, 'Bột nêm', 'package');
+INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (17, 30000, 'Nước mắm', 'bottle');
+INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (18, 15000, 'Nước tương', 'bottle');
+INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (19, 18000, 'Đường trắng', 'kg');
+INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (20, 56000, 'Dầu ăn', 'bottle');
+INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (21, 25000, 'Gạo', 'kg');
+INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (22, 115000, 'Mỳ gói', 'box');
+INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (23, 50000, 'Khẩu trang y tế', 'box');
+INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (24, 35000, 'Nước rửa tay', 'bottle');
+INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (25, 80000, 'Chai xịt khử mùi', 'bottle');
+INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (26, 30000, 'Kem đánh răng', 'box');
+INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING SYSTEM VALUE VALUES (27, 35000, 'Giấy vệ sinh', 'box');
 
 
 --
