@@ -1,16 +1,16 @@
 <div id="account">
-    <div class="card" style="border: black solid 2px;">
-        <div class="card-header text-center">
+    <div class="card" style="border: #7af1e7 solid 2px; background-color: #7af1e7;  border-radius:20px">
+        <div class="card-header text-center bg-linear" style="border-top-left-radius: 20px; border-top-right-radius: 20px">
             <div class="row align-items-center">
                  <div class="col-md-2">
-                    <a class="btn btn-primary float-left" style="color:white;" title="Quay lại" id="create-user" href="/admin/accounts?page={{pageParent}}"
+                    <a class="btn btn-primary float-left" style="color:rgb(35, 35, 35);" title="Back" id="create-user" href="/admin/accounts?page={{pageParent}}"
                         role="button">
                         <i class="fa fa-angle-left" aria-hidden="true"></i> 
                     </a>
                 </div>
                 <div class="col-md-8">
-                    <i class="fa fa-user" aria-hidden="true" style="font-size: 25px;"></i>
-                    <b style="font-size: 25px;">Lịch sử hoạt động của {{username}}</b>
+                    <i class="fa fa-history " aria-hidden="true" style="font-size: 25px;"></i>
+                    <b style="font-size: 25px;">Operation history of {{username}}</b>
                 </div>
                
             </div>
@@ -25,8 +25,8 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">No</th>
-                        <th scope="col">Thời gian bắt đầu</th>
-                        <th scope="col">Thời gian kết thúc</th>
+                        <th scope="col">Start time</th>
+                        <th scope="col">End time</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>

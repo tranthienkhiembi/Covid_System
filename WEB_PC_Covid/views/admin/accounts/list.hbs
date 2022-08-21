@@ -1,8 +1,8 @@
 <div id="account">
-    <div class="card" style="border: #309c93 solid 3px;">
-        <div class="card-header text-center bg-linear">
-            <div class="row align-items-center">
-                <div class="mx-auto pl-5">
+    <div class="card" style="border: #7af1e7 solid 3px; background-color:#7af1e7; border-radius:20px">
+        <div class="card-header text-center bg-linear" style="border-top-left-radius: 20px; border-top-right-radius: 20px">
+            <div class="row align-items-center" >
+                <div class="mx-auto pl-5" >
                     <i class="fa fa-list-alt" aria-hidden="true" style="font-size: 25px;"></i>
                     <b style="font-size: 25px;">Account management</b>
                 </div>
@@ -71,7 +71,7 @@
                  <li class="page-item  {{#unless can_go_next}} disabled {{/unless}}">
                      <a class="page-link" href="?page={{next_value}}" aria-label="Next">
                         <span aria-hidden="true">Next</span>
-                    </a>
+                    </a>    
                 </li>
                 
             </ul>
@@ -79,17 +79,17 @@
     </div>
 </div>
 
-<div id="dialog-form" title="Tạo tài khoản mới" style="display: none;">
-    <p class="validateTips">Điền tất cả các trường được yêu cầu.</p>     
+<div id="dialog-form" title="Create a new management account" style="background-color: #4bebbb; border-radius:5px">
+    <p class="validateTips" >Enter all required information.</p>     
     <form method="POST">
         <fieldset>
             <div class="input-group mb-3">
                 <span class="input-group-text"> <i class="fa fa-user" aria-hidden="true"></i></span>
-                <input type="text" class="form-control" name="username" id="username" placeholder="Tên tài khoản">
+                <input type="text" class="form-control" name="username" id="username" placeholder="Enter username">
             </div>
                 <div class="input-group mb-3">
                 <span class="input-group-text"> <i class="fa fa-lock" aria-hidden="true"></i></span>
-                <input type="password" class="form-control" name="password" id="password" placeholder="Mật khẩu"/>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Enter password"/>
             </div>
             <!-- Allow form submission with keyboard without duplicating the dialog button -->
             <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
@@ -141,7 +141,7 @@
             function checkLength(o, n, min, max) {
                 if (o.val().length > max || o.val().length < min) {
                     o.addClass( "ui-state-error" );
-                    updateTips( "Chiều dài " + n + " thuộc [" +
+                    updateTips( "Length " + n + " belongs to [" +
                     min + ", " + max + "]." );
                     return false;
                 } else {
@@ -166,8 +166,8 @@
                 valid = valid && checkLength(username, "username", 3, 16);
                 valid = valid && checkLength(password, "password", 5, 16);
             
-                valid = valid && checkRegexp(username, /^[a-z]([0-9a-z_\s])+$/i, "Tên tài khoản có thể bao gồm a-z, 0-9, dấu gạch dưới, dấu cách và phải bắt đầu bằng một chữ cái.");
-                valid = valid && checkRegexp(password, /^([0-9a-zA-Z])+$/, "Mật khẩu chỉ gồm a-z, 0-9");
+                valid = valid && checkRegexp(username, /^[a-z]([0-9a-z_\s])+$/i, "Account name can include a-z, 0-9, underscore, space and must start with a letter.");
+                valid = valid && checkRegexp(password, /^([0-9a-zA-Z])+$/, "Passwords only include a-z, 0-9");
                 
                 if (valid) {
                     $.ajax({
@@ -185,7 +185,7 @@
                             }
                             else{
                                 username.addClass("ui-state-error");
-                                updateTips("Tên tài khoản đã tồn tại.");
+                                updateTips("This account has already existed.");
                             }
                         }   
                     });
@@ -200,22 +200,22 @@
                 modal: true,
                 buttons: {
                     CreateUser:{ 
-                        class: "CreateButton btn btn-primary",
+                        class: "CreateButton btn btn-success",
                         text: "Create",
                         click : addUser
                     },
                     Cancel: {
-                        class: "CancelButton btn btn-primary",
+                        class: "CancelButton btn btn-danger",
                         text: "Cancel",
                         click: function() {
-                            tips.text("Điền các trường được yêu cầu.");
+                            tips.text("Enter all required information");
                             dialog.dialog("close");
                         }  
                     }
                 },
                 close: function() {
                     form[0].reset();
-                    tips.text("Điền các trường được yêu cầu.");
+                    tips.text("Enter all required information.");
                     allFields.removeClass("ui-state-error");
                 }
             });
