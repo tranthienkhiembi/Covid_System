@@ -132,11 +132,11 @@
 <section class="login-block">
     <div class="container">
         <div class="pt-3 ps-1">
-            <a href="/user/pay" class="link-info link-back h5"><i class="fas fa-chevron-left me-1"></i>Quay lại trang thông tin</a>
+            <a href="/user/pay" class="link-info link-back h5"><i class="fas fa-chevron-left me-1"></i>Back</a>
         </div>
         <div class="row">
             <div class="col-md-5 login-sec">
-                <h2 class="text-center">Tài khoản của bạn</h2>
+                <h2 class="text-center">Your account</h2>
                 <form method="post">
                     <div class="form-group">
                         <label for="exampleInputPassword1" class="text2">ID:</label>
@@ -144,7 +144,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="text2">Số dư tài khoản:</label>
+                        <label class="text2">Account balance:</label>
                         <div class="input-group">                       
                             <input type="text" readonly class="form-control balance" name="balance" 
                             value="{{format_number balance}}">
@@ -154,11 +154,11 @@
 
                     {{#if isDonePayment}}
                         <div class="alert alert-success form-control mt-2" role="alert">
-                        <i class="fas fa-check me-1"></i> Giao dịch thành công
+                        <i class="fas fa-check me-1"></i>Successful transaction
                         </div>
                     {{else}}
                         <div class="form-group">
-                            <label class="text2">Số tiền của gói nhu yếu phẩm cần thanh toán:</label>
+                            <label class="text2">Cost to pay:</label>
                             <div class="input-group">                       
                                 <input type="text" readonly class="form-control" name="payment" 
                                 value="{{format_number payment}}">
@@ -167,13 +167,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="text2">Nhập số tiền thanh toán:</label>
+                            <label class="text2">Input money to pay:</label>
                             <input type="number" class="form-control paymentMoney" name="paymentMoney" value={{format_number money}}>
                         </div>
                         <div class="checkPaymentMoney mb-2 mt-2" style="color: #DE6262;">{{alert}}</div>
-                        <button type="submit" class="btn btn-login btn-right" id="solve" style="margin-left: 30px;">Thanh toán</button>
+                        <button type="submit" class="btn btn-login btn-right" id="solve" style="margin-left: 30px;">Pay</button>
                     {{/if}}
-                    <a role="button" class="btn btn-login" href="/user/pay/recharge" style="margin-left: 60px;">Nạp tiền</a>
+                    <a role="button" class="btn btn-login" href="/user/pay/recharge" style="margin-left: 60px;">Recharge</a>
                 </form>
             </div>
             <div class="col-md-7 banner-sec">
@@ -214,13 +214,13 @@
                 $("#solve").prop('disabled', false);
             }
             else {
-                alert('Số tiền bạn nhập lớn hơn số dư tài khoản hiện tại!', 'danger', 'PaymentMoney');
+                alert('Not enough money', 'danger', 'PaymentMoney');
                 $("#solve").prop('disabled', true);
             }
         }
         else
         {
-            alert('Vui lòng điền số tiền cần thanh toán!', 'danger', 'PaymentMoney');
+            alert('Input money to pay', 'danger', 'PaymentMoney');
             $("#solve").prop('disabled', true);
         }
     })

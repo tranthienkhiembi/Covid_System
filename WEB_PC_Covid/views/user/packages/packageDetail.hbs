@@ -10,7 +10,7 @@
                 <div class="col-md-12">
                     <div class="section-heading">
                         <div class="line-dec"></div>
-                        <h1>Chi tiết gói nhu yếu phẩm</h1>
+                        <h1>Details package of necessities</h1>
                     </div>
                 </div>
 
@@ -41,7 +41,7 @@
                     </div>
                     <div class="row right-content" style="margin-top: 50px">
                         <span>
-                            <h3>Mô tả: </h3>
+                            <h3>Description: </h3>
                         </span>
                         <span style="font-style: italic;">{{introduce}}</span>
                     </div>
@@ -51,7 +51,7 @@
                     <form>
                         <div class="right-content" id="{{Id}}" name="{{Id}}">
                             <h2>{{NamePackage}}</h2>
-                            <h6>Thành phần bao gồm: </h6>
+                            <h6>Element: </h6>
                             <ul style="list-style-type: none;">
                                 {{#each ../this.product}}
                                 <li>
@@ -70,7 +70,7 @@
                                 value="{{quantity}}">
                             <button type="submit" class="btn btn-info" formmethod="post" style="margin-right: 50px;"
                                 data-bs-toggle="modal" data-bs-target="#exampleBuy" data-target="#exampleBuy"
-                                formaction="/user/buyPackages/quantity">Mua ngay!!</button>
+                                formaction="/user/buyPackages/quantity">Buy</button>
                         </div>
                         <div class="checkQuantity"></div>
                     </form>
@@ -101,7 +101,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">CHỌN HÌNH THỨC THANH TOÁN</h4>
+                <h4 class="modal-title">Payments</h4>
             </div>
             <form align="center">
                 <div class="modal-body">
@@ -109,10 +109,10 @@
                         <h5>Số tiền cần thanh toán cho hóa đơn này: {{totalPrice}} VNĐ</h5>
                     </span> --}}
                     <button type="submit" class="btn btn-info" formmethod="post" style="margin-right: 50px;"
-                        formaction="/user/buyPackages/paynow">Thanh toán ngay</button>
+                        formaction="/user/buyPackages/paynow">Pay now</button>
 
                     <button type="submit" class="btn btn-info" formmethod="post"
-                        formaction="/user/buyPackages/paylater">Thanh toán sau</button>
+                        formaction="/user/buyPackages/paylater">Pay later</button>
                 </div>
                 <div class="modal-footer">
                 </div>

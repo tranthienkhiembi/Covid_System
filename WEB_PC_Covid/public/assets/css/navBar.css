@@ -172,12 +172,8 @@ ul.CTAs {
     color: rgb(85, 0, 255);
 }
 .card-header{
-<<<<<<< HEAD
     height: 110px;
-=======
     height: 90px;
-    
->>>>>>> 2bce65f9536048d4d714ba53830bcaf7d28596f0
 }
 .editfontsize{
     font-size: 1.5em;
