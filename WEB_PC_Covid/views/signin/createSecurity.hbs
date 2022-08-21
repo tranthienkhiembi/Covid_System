@@ -1,6 +1,6 @@
 <html lang='en'>
     <head>
-        <title>Tạo bảo mật</title>
+        <title>Create security</title>
         <meta charset='UTF-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link
@@ -41,14 +41,19 @@
     </head>
     <body>
         <div class='limiter'>
+            <div class="video-wrap">
+                <video autoplay="" loop="" muted="" class="custom-video" poster="">
+                <source src="assets/login/images/video/video_main.mp4" type="video/mp4" />
+                </video>
+            </div>
             <div class='container-login100'>
                 <div class='wrap-login100'>
                     <div class='login100-pic js-tilt'>
-                        <img src='https://st.quantrimang.com/photos/image/2018/05/21/cau-hoi-bao-mat-1.jpg' alt='IMG' />
+                        <img src='https://d1.awsstatic.com/events/aws-hosted-events/2016/UK/Question.9f9487d3216565e551d6b980a226aa8e8db82627.png' alt='IMG' />
                     </div>
                     <form method='POST' class='login100-form validate-form'>
                         <span class='login100-form-title'>
-                            Tạo câu hỏi bảo mật cho {{User}}
+                            Create a security question for {{User}}
                         </span>
                         {{#if error}}
                             <div
@@ -58,25 +63,25 @@
                                 >{{message}}</h5></div>
                         {{/if}}
 
-                        <label for="securityQuestion">Câu hỏi bảo mật
+                        <label for="securityQuestion">Security question
                         <select class='{{#if errorQuestion}}ui-state-error{{/if}}' id="securityQuestion" name="securityQuestion">
                             <option value="securityQuestion1">
-                            Chứng minh nhân dân của mẹ bạn???
+                            Your favorite dish?
                             </option>
                             <option value="securityQuestion2">
-                            Chứng minh nhân dân của ba bạn???
+                            What do you enjoy most in your leisure time?
                             </option>
                         </select>
                         </label>
                         <div class='wrap-input100 validate-input'>    
-                            <input class="input100 {{#if errorAnswer}}ui-state-error{{/if}}" type="text" name="securityAnswer" placeholder="Câu trả lời của bạn" required/>
+                            <input class="input100 {{#if errorAnswer}}ui-state-error{{/if}}" type="text" name="securityAnswer" placeholder="Your answer" required/>
                              <span class='symbol-input100'>
-                              <i class="fas fa-hand-point-right"></i>
+                              <i class="fa fa-comment"></i>
                             </span>
                         </div>
 
                         <div class='container-login100-form-btn'>
-                            <button class='login100-form-btn'>Lưu</button>
+                            <button class='login100-form-btn'>Save</button>
                         </div>
 
                         <div class='text-center p-t-100'>

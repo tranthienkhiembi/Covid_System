@@ -1,6 +1,6 @@
 <html lang='en'>
     <head>
-        <title>Cấp lại mật khẩu</title>
+        <title>Re-issue password</title>
         <meta charset='UTF-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link
@@ -37,18 +37,26 @@
         <style>
             .ui-state-error {
             border: 2px solid red;}
+            .wrap-login100{
+                padding-top: 70px;
+            }
         </style>
     </head>
     <body>
         <div class='limiter'>
+            <div class="video-wrap">
+                <video autoplay="" loop="" muted="" class="custom-video" poster="">
+                <source src="assets/login/images/video/video_main.mp4" type="video/mp4" />
+                </video>
+            </div>
             <div class='container-login100'>
                 <div class='wrap-login100'>
-                    <div class='login100-pic js-tilt' style="padding-top: 100px;">
-                        <img src='https://jp.thecao24.vn/upload/public_thumb/login_icon_1517851815_thumb.png' alt='IMG' />
+                    <div class='login100-pic js-tilt' style="padding-top:70px">
+                        <img src='assets/login/images/forgot_pass.png' alt='IMG' />
                     </div>
                     <form method='POST' class='login100-form validate-form'>
                         <span class='login100-form-title'>
-                            Cấp lại mật khẩu
+                            Re-issue password
                         </span>
                         {{#if error}}
                             <div
@@ -65,7 +73,7 @@
                                 class="input100 {{#if errorUser}}ui-state-error{{/if}}"
                                 type="text"
                                 name="username"
-                                placeholder="Tên tài khoản"
+                                placeholder="Account name"
                                 required
                             />
                             <span class="symbol-input100">
@@ -73,20 +81,20 @@
                             </span>
                         </div>
 
-                        <label for="securityQuestion">Câu hỏi bảo mật
+                        <label for="securityQuestion">Security question
                         <select class='{{#if errorQuestion}}ui-state-error{{/if}}' id="securityQuestion" name="securityQuestion">
                             <option value="securityQuestion1">
-                            Chứng minh nhân dân của mẹ bạn???
+                            Your favorite dish?
                             </option>
                             <option value="securityQuestion2">
-                            Chứng minh nhân dân của ba bạn???
+                            What do you enjoy most in your leisure time?
                             </option>
                         </select>
                         </label>
                         <div class='wrap-input100 validate-input'>    
-                            <input class="input100 {{#if errorAnswer}}ui-state-error{{/if}}" type="text" name="securityAnswer" placeholder="Câu trả lời của bạn" required/>
+                            <input class="input100 {{#if errorAnswer}}ui-state-error{{/if}}" type="text" name="securityAnswer" placeholder="Your answer" required/>
                              <span class='symbol-input100'>
-                              <i class="fas fa-hand-point-right"></i>
+                              <i class="fa fa-comment"></i>
                             </span>
                             
                         </div>
@@ -95,7 +103,7 @@
                                 class='input100 {{#if errorPassNew}}ui-state-error{{/if}}'
                                 type='password'
                                 name='passNew'
-                                placeholder='Mật khẩu mới'
+                                placeholder='New password'
                                 required
                             />
                             <span class='symbol-input100'>
@@ -107,7 +115,7 @@
                                 class='input100 {{#if errorVerifyPass}}ui-state-error{{/if}}'
                                 type='password'
                                 name='VerifyPass'
-                                placeholder='Xác nhận mật khẩu'
+                                placeholder='Confirm password'
                                 required
                             />
                             <span class='symbol-input100'>
@@ -116,7 +124,7 @@
                         </div>
 
                         <div class='container-login100-form-btn'>
-                            <button class='login100-form-btn'>Lưu</button>
+                            <button class='login100-form-btn'>Save</button>
                         </div>
 
                         <div class='text-center p-t-100'>
