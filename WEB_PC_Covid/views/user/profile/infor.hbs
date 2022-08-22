@@ -11,23 +11,28 @@
         font-size: 17px;
         color: #3352db;
     }
+
+    .container {
+
+        margin-left: -10px; 
+    }
 </style>
 
 <div id="content">
-    <div class="card" style="margin-top: 40px;">
-        <div class="card-header">
+    <div class="card" style="margin-top: 40px; border-radius:20px">
+        <div class="card-header text-center" style="margin-top:12px;">
             <link rel="stylesheet" href="/assets/css/tooplate-main.css">
-            <div class="featured-page" style="margin-top: 94px">
-                <div class="container" style="margin-top: -100px;">
-                    <div class="row navbar navbar-expand-lg bg-linear" >
+            <div class="featured-page" style="margin-top: 94px;">
+                <div class="container" style="margin-top: -100px; ">
+                    <div class="row navbar navbar-expand-lg  bg-linear" style="width: 1565px; height: 75px; " >
                         <div class="col-md-3 col-sm-12">
                             <div class="section-heading">
                                 <div class="line-dec"></div>
                                 <h1>USER INFORMATION</h1>
                             </div>
                         </div>
-                        <div class="col-md-9 col-sm-12">
-                            <div id="filters" class="button-group" style="margin-right: 20px;">
+                        <div class="col-md-9 col-sm-12" >
+                            <div id="filters" class="button-group" style="margin-right: 20px; ">
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     {{#if isInform}}
                                     <a tabindex="0" class="btn btn-lg btn-danger btn-login" role="button"
@@ -35,13 +40,17 @@
                                         data-bs-content="{{inform}}"><i class="far fa-bell"></i></a>
                                     {{/if}}
                                     <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                        data-bs-target="#exampleManage">Managed History</button>
+                                        data-bs-target="#exampleManage" title="Managed History">
+                                        <i class="fa fa-tasks" aria-hidden="true"></i></button>
                                     <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                        data-bs-target="#exampleProduct">Consumption history of the necessities package</button>
+                                        data-bs-target="#exampleProduct" title="Consumption history of the necessities package">
+                                        <i class="fa fa-cube" aria-hidden="true"></i></button>
                                     <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                        data-bs-target="#exampleDebt">Debt</button>
+                                        data-bs-target="#exampleDebt" title="Debt">
+                                        <i class="fa fa-usd" aria-hidden="true"></i></button>
                                     <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                        data-bs-target="#examplePay">History payment</button>
+                                        data-bs-target="#examplePay" title="History payment">
+                                        <i class="fa fa-handshake-o" aria-hidden="true"></i></button>
                                 </div>
                             </div>
                         </div>
