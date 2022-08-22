@@ -29,8 +29,6 @@ const login = async (req, res) => {
             Id: user.ID,
         });
 
-        //userModel.updateOne({ _id: user._id }, { refreshToken });
-
         res.cookie("access_token", token, {
             httpOnly: true,
             expires: new Date(Date.now() + constants.COOKIE_EXPIRES_TIME),

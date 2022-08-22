@@ -63,7 +63,7 @@ router.post('/delete/:Id', async(req, res) => {
   await packetModel.delProductPackage(package);
   await packetModel.del(package);
 
-  req.session.activities.push(`${req.user.name} xóa gói nhu yếu`);
+  req.session.activities.push(`${req.user.name} delete essentials package`);
   res.redirect('/manager/packets');
 });
 
@@ -88,7 +88,7 @@ router.post('/update/:Id', async(req, res) => {
     }
     await packetModel.addProPacket(productPackage);
   }
-  req.session.activities.push(`${req.user.name} thay đổi gói nhu yếu phẩm ${packet.NamePackage}`);
+  req.session.activities.push(`${req.user.name} change package of necessities ${packet.NamePackage}`);
   res.redirect('/manager/packets');
 });
 
@@ -110,7 +110,7 @@ router.post('/add', async(req, res) => {
     await packetModel.addProPacket(productPackage);
   }
 
-  req.session.activities.push(`${req.user.name} thêm gói nhu yếu phẩm ${packet.NamePackage}`);
+  req.session.activities.push(`${req.user.name} add package of necessities ${packet.NamePackage}`);
   res.redirect('/manager/packets');
 });
 
@@ -131,7 +131,7 @@ router.get('/sort/byName', async(req, res) => {
       nameProducts.push(nameProduct[0]);    
     }
 
-    list[index].products = nameProducts;    // Lưu danh sách các sản phẩm có trong gói
+    list[index].products = nameProducts;   
 
     var indexUnchecked = new Array();   
     nameProducts.forEach(element => {
@@ -148,7 +148,7 @@ router.get('/sort/byName', async(req, res) => {
       minus++;
     });
 
-    list[index].uncheckedProducts = allProductsUnChecked;     // lưu danh sách các sản phẩm không nằm trong gói
+    list[index].uncheckedProducts = allProductsUnChecked;  
   }
   
   req.session.pathCur = `/manager/packets/sort/byName`;
@@ -179,7 +179,7 @@ router.get('/sort/byLimitProducts', async(req, res) => {
       nameProducts.push(nameProduct[0]);    
     }
 
-    list[index].products = nameProducts;    // Lưu danh sách các sản phẩm có trong gói
+    list[index].products = nameProducts;    
 
     var indexUnchecked = new Array();   
     nameProducts.forEach(element => {
@@ -196,7 +196,7 @@ router.get('/sort/byLimitProducts', async(req, res) => {
       minus++;
     });
 
-    list[index].uncheckedProducts = allProductsUnChecked;     // lưu danh sách các sản phẩm không nằm trong gói
+    list[index].uncheckedProducts = allProductsUnChecked;     
   }
   
   req.session.pathCur = `/manager/packets/sort/byLimitProducts`;
@@ -227,7 +227,7 @@ router.get('/sort/byLimitPeople', async(req, res) => {
       nameProducts.push(nameProduct[0]);    
     }
 
-    list[index].products = nameProducts;    // Lưu danh sách các sản phẩm có trong gói
+    list[index].products = nameProducts;   
 
     var indexUnchecked = new Array();   
     nameProducts.forEach(element => {
@@ -244,7 +244,7 @@ router.get('/sort/byLimitPeople', async(req, res) => {
       minus++;
     });
 
-    list[index].uncheckedProducts = allProductsUnChecked;     // lưu danh sách các sản phẩm không nằm trong gói
+    list[index].uncheckedProducts = allProductsUnChecked;   
   }
   
   req.session.pathCur = `/manager/packets/sort/byLimitPeople`;
@@ -274,7 +274,7 @@ router.get('/sort/byLimitTime', async(req, res) => {
       nameProducts.push(nameProduct[0]);    
     }
 
-    list[index].products = nameProducts;    // Lưu danh sách các sản phẩm có trong gói
+    list[index].products = nameProducts;   
 
     var indexUnchecked = new Array();   
     nameProducts.forEach(element => {
@@ -291,7 +291,7 @@ router.get('/sort/byLimitTime', async(req, res) => {
       minus++;
     });
 
-    list[index].uncheckedProducts = allProductsUnChecked;     // lưu danh sách các sản phẩm không nằm trong gói
+    list[index].uncheckedProducts = allProductsUnChecked;    
   }
   
   req.session.pathCur = `/manager/packets/sort/byLimitTime`;
@@ -321,7 +321,7 @@ router.get('/search', async(req, res) => {
       nameProducts.push(nameProduct[0]);    
     }
 
-    list[index].products = nameProducts;    // Lưu danh sách các sản phẩm có trong gói
+    list[index].products = nameProducts;   
 
     var indexUnchecked = new Array();   
     nameProducts.forEach(element => {
@@ -341,7 +341,7 @@ router.get('/search', async(req, res) => {
     list[index].uncheckedProducts = allProductsUnChecked;     // lưu danh sách các sản phẩm không nằm trong gói
   }
   
-  req.session.activities.push(`${req.user.name} tìm kiếm gói nhu yếu có từ khóa ${search}`);
+  req.session.activities.push(`${req.user.name} search for essential packages with keywords ${search}`);
   req.session.pathCur = `/manager/packets/search?search=${search}`;
   res.render('manager/packets/list', {
     title: 'Packages of necessities',
@@ -375,7 +375,7 @@ router.get('/filter/byCountMore5', async (req, res) => {
       continue;
     }
 
-    list[index].products = nameProducts;    // Lưu danh sách các sản phẩm có trong gói
+    list[index].products = nameProducts; 
 
     var indexUnchecked = new Array();   
     nameProducts.forEach(element => {
@@ -393,7 +393,7 @@ router.get('/filter/byCountMore5', async (req, res) => {
       minus++;
     });
 
-    list[index].uncheckedProducts = allProductsUnChecked;     // lưu danh sách các sản phẩm không nằm trong gói
+    list[index].uncheckedProducts = allProductsUnChecked;  
   }
   
   req.session.pathCur = `/manager/packets`;
@@ -429,8 +429,7 @@ router.get('/filter/byCountLess5', async (req, res) => {
       continue;
     }
 
-    list[index].products = nameProducts;    // Lưu danh sách các sản phẩm có trong gói
-
+    list[index].products = nameProducts;   
     var indexUnchecked = new Array();   
     nameProducts.forEach(element => {
       allProductsUnChecked.forEach(e => {
@@ -447,7 +446,7 @@ router.get('/filter/byCountLess5', async (req, res) => {
       minus++;
     });
 
-    list[index].uncheckedProducts = allProductsUnChecked;     // lưu danh sách các sản phẩm không nằm trong gói
+    list[index].uncheckedProducts = allProductsUnChecked;    
   }
   
   req.session.pathCur = `/manager/packets`;

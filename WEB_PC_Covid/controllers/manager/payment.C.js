@@ -12,11 +12,10 @@ router.get('/', async (req, res) => {
     const user = await patientModel.getOne(cs[index].IdUser);
     const packet = await packetModel.getOne(cs[index].IdPackage);
 
-    // tìm ngày mua
+  
     var timeBuy = cs[index].Time.toISOString().replace(/T/, ' ').replace(/\..+/, '');
     timeBuy = timeBuy.slice(0, timeBuy.indexOf(" "));
 
-    // tìm ngày thanh toán cuối cùng ứng với gói đó
     var dateTimeEnd = new Date(Date.parse(timeBuy) + packet.LimitTime*24*3600*1000);
     var timeEnd = dateTimeEnd.toISOString().replace(/T/, ' ').replace(/\..+/, '');
     timeEnd = timeEnd.slice(0, timeEnd.indexOf(" "));
@@ -41,7 +40,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   const cs = await paymentModel.all();
 
-  // lấy hạn mức tối thiểu được thay đổi
+
   var limit = req.body.creditLimit; 
   const newCreditLimit = new Array();
   for (let index = 0; index < limit.length; index++) {
@@ -58,9 +57,9 @@ router.post('/', async (req, res) => {
     const user = await patientModel.getOne(cs[index].IdUser);
     const packet = await packetModel.getOne(cs[index].IdPackage);
     
-    // thay đổi inform trong bảng User
+
     await paymentModel.updateInform({Inform: 1}, user.Id);
-    // thay đổi hạn mức thanh toán tối thiểu
+
     const payment = {
       IdUser: cs[index].IdUser,
       IdPackage: cs[index].IdPackage,
@@ -71,11 +70,10 @@ router.post('/', async (req, res) => {
     };
     await paymentModel.update(payment, cs[index].Id);
 
-    // tìm ngày mua
+
     var timeBuy = cs[index].Time.toISOString().replace(/T/, ' ').replace(/\..+/, '');
     timeBuy = timeBuy.slice(0, timeBuy.indexOf(" "));
 
-    // tìm ngày thanh toán cuối cùng ứng với gói đó
     var dateTimeEnd = new Date(Date.parse(timeBuy) + packet.LimitTime*24*3600*1000);
     var timeEnd = dateTimeEnd.toISOString().replace(/T/, ' ').replace(/\..+/, '');
     timeEnd = timeEnd.slice(0, timeEnd.indexOf(" "));

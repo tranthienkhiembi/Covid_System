@@ -58,7 +58,7 @@ router.post('/delete/:Id', async(req, res) => {
   await productModel.delProductPackage(product);
   await productModel.del(product);
 
-  req.session.activities.push(`${req.user.name} xóa sản phẩm nhu yếu`);
+  req.session.activities.push(`${req.user.name} delete essential products`);
   res.redirect('/manager/products');
 });
 
@@ -71,7 +71,7 @@ router.post('/update/:Id', async(req, res) => {
 
   await productModel.updateProduct(product, parseInt(req.params.Id));
 
-  req.session.activities.push(`${req.user.name} thay đổi thông tin sản phẩm nhu yếu`);
+  req.session.activities.push(`${req.user.name} change essential product information`);
   res.redirect('/manager/products');
 });
 
@@ -91,7 +91,7 @@ router.post('/add',  upload.array('productImage', 12), async(req, res) => {
     await productModel.addImg(productImg);
   }
   
-  req.session.activities.push(`${req.user.name} thêm sản phẩm nhu yếu ${product.NameProduct}`);
+  req.session.activities.push(`${req.user.name} add essential products ${product.NameProduct}`);
   res.redirect('/manager/products');
 });
 
@@ -127,7 +127,7 @@ router.get('/search', async(req, res) => {
       page_items.push(item);
     };
 
-    req.session.activities.push(`${req.user.name} tìm kiếm các sản phẩm nhu yếu theo từ khóa ${search}`);
+    req.session.activities.push(`${req.user.name} search for essential packages with keywords ${search}`);
     req.session.pathCur = `/manager/products/search?page=${page}`;
     res.render('manager/products/list', {
       title: 'Necessary products',
@@ -142,7 +142,7 @@ router.get('/search', async(req, res) => {
     });
   }
   else {
-    req.session.activities.push(`${req.user.name} tìm kiếm các sản phẩm nhu yếu theo từ khóa ${search}`);
+    req.session.activities.push(`${req.user.name} search for essential packages with keywords ${search}`);
     req.session.pathCur = `/manager/products/search?page=${page}`;
     res.render('manager/products/list', {
       title: 'Necessary products',
@@ -225,7 +225,7 @@ router.get('/sort/byName', async(req, res) => {
     page_items.push(item);
   };
   
-  req.session.activities.push(`${req.user.name} xem danh sách sản phẩm theo tên`);
+  req.session.activities.push(`${req.user.name} view product list by name`);
   req.session.pathCur = `/manager/products/sort/byName`;
   res.render('manager/products/list', {
     title: 'Necessary products',
@@ -270,7 +270,7 @@ router.get('/sort/byCost', async(req, res) => {
     page_items.push(item);
   };
   
-  req.session.activities.push(`${req.user.name} xem danh sách sản phẩm theo giá tiền`);
+  req.session.activities.push(`${req.user.name} view product list by price`);
   req.session.pathCur = `/manager/products/sort/byCost`;
   res.render('manager/products/list', {
     title: 'Necessary products',
@@ -315,7 +315,7 @@ router.get('/filter/byUnitKg', async(req, res) => {
     page_items.push(item);
   };
   
-  req.session.activities.push(`${req.user.name} xem danh sách sản phẩm có đơn vị là kg`);
+  req.session.activities.push(`${req.user.name} view a list of products with units of kg`);
   req.session.pathCur = `/manager/products/filter/byUnitKg`;
   res.render('manager/products/list', {
     title: 'Necessary products',
@@ -360,7 +360,7 @@ router.get('/filter/byCost10k', async(req, res) => {
     page_items.push(item);
   };
   
-  req.session.activities.push(`${req.user.name} xem danh sách sản phẩm có giá tối thiểu từ 10,000 VNĐ`);
+  req.session.activities.push(`${req.user.name} view a list of products with a minimum price of 10,000 VND`);
   req.session.pathCur = `/manager/products/filter/byCost10k`;
   res.render('manager/products/list', {
     title: 'Necessary products',
@@ -405,7 +405,7 @@ router.get('/filter/byCost0k', async(req, res) => {
     page_items.push(item);
   };
   
-  req.session.activities.push(`${req.user.name} xem danh sách sản phẩm có giá tối đa 10,000 VNĐ`);
+  req.session.activities.push(`${req.user.name} view a list of products with a maximum price of 10,000 VND`);
   req.session.pathCur = `/manager/products/filter/byCost0k`;
   res.render('manager/products/list', {
     title: 'Necessary products',

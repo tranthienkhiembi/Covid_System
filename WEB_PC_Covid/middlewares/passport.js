@@ -19,24 +19,18 @@ module.exports = (app) => {
                     //console.log(user);
                     if (parseInt(user.LockUp) === 1) {
                         return done(null, false, {
-                            message: 'Tài khoản bị khóa!',
+                            message: 'Account is locked!',
                             err: 0,
                         });
                     }
                     
                     if (!user) {
                         return done(null, false, {
-                            message: 'Nhập sai tên tài khoản!',
+                            message: 'Enter the wrong account name!',
                             err: 1,
                         });
                     }
 
-                    // if (role != parseInt(user.Role)) {
-                    //     return done(null, false, {
-                    //         message: 'Nhập sai phần quyền!',
-                    //         err: 2,
-                    //     });
-                    // }
 
                     const challengeResult = await bcrypt.compare(
                         password,
@@ -44,8 +38,8 @@ module.exports = (app) => {
                     );
                     if (!challengeResult) {
                         return done(null, false, {
-                            message: 'Nhập sai mật khẩu!',
-                            err: 2, //
+                            message: 'Wrong password!',
+                            err: 2, 
                         });
                     }
 

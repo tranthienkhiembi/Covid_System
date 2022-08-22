@@ -208,7 +208,7 @@ router.post('/addF0', async (req, res) => {
         Place: place.Id,
     };
     await patientModel.addHistory(history);
-    req.session.activities.push(`${req.user.Username} thêm F0 ${req.body.name}`);
+    req.session.activities.push(`${req.user.Username} add F0 ${req.body.name}`);
     req.session.pathCur = `/manager/patients`;
     let accountPayment = {
         ID: accountId,
@@ -232,7 +232,7 @@ router.post('/addF0', async (req, res) => {
         next_value: 0,
         can_go_prev: false,
         can_go_next: false,
-        alert: "Thêm F0 thành công!",
+        alert: "Add F0 successfully!",
         username: account.Username,
         password: req.body.idNumber,
         idPayment: accountId
@@ -295,7 +295,7 @@ router.post('/addRelated/:id', async (req, res) => {
         Place: place.Id,
     };
     await patientModel.addHistory(history);
-    req.session.activities.push(`${req.user.Username} thêm F${req.body.status}: ${req.body.name}`);
+    req.session.activities.push(`${req.user.Username} add F${req.body.status}: ${req.body.name}`);
     
     let accountPayment = {
         ID: accountId,
@@ -320,7 +320,7 @@ router.post('/addRelated/:id', async (req, res) => {
         next_value: 0,
         can_go_prev: false,
         can_go_next: false,
-        alert: `Thêm F${req.body.status} thành công!`,
+        alert: `Add F${req.body.status} successfully!`,
         username: account.Username,
         password: req.body.idNumber,
         idPayment: accountId
@@ -398,7 +398,7 @@ router.post('/update/:id', async (req, res) => {
         }
 
     }
-    req.session.activities.push(`${req.user.Username} cập nhập trạng thái F${user.Status}: ${user.Name}`);
+    req.session.activities.push(`${req.user.Username} update status F${user.Status}: ${user.Name}`);
     res.redirect('/manager/patients');
 });
 module.exports = router;

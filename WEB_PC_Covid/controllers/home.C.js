@@ -10,10 +10,9 @@ router.get('/', (req, res) => {
 });
 
 router.get('/signin', async (req, res) => {
-    //Khi tài khoản đăng nhập sẽ không chuyển tới trang đăng nhập được.
+
     if (req.user) return res.redirect(req.session.pathCur);
 
-    //Kiểm tra phải lần đầu đăng nhập web hay không??
     const size = await userModel.countAccount();
     if (parseInt(size[0].Size) === 0) return res.redirect('/register');
 
@@ -24,19 +23,17 @@ router.get('/signin', async (req, res) => {
 
 router.post('/signin', async (req, res, next) => {
     passport.authenticate('local', function (err, user, info) {   
-        // Nhập thông tin chưa đầy đủ
+
         if (!user && info && info.message === 'Missing credentials')
             return res.render('signin/signin', {
                 layout: false,
-                message: 'Nhập đầy đủ thông tin!',
+                message: 'Enter complete information!',
                 errorSystem: true,
             });
- 
-        //Tài khoản không tồn tại trong database
         if (err)
             return res.render('signin/signin', {
                 layout: false,
-                message: 'Tài khoản không tồn tại!',
+                message: 'Account does not exist!',
                 errorSystem: true,
             });
 
@@ -57,15 +54,6 @@ router.post('/signin', async (req, res, next) => {
                     errorUser: true,
                 });
 
-            //Error role
-            // if (info.err === 2)
-            //     return res.render('signin/signin', {
-            //         layout: false,
-            //         message: info.message,
-            //         errorRole: true,
-            //     });
-
-            //Error Pass (info.err === 2)
             return res.render('signin/signin', {
                 layout: false,
                 message: info.message,
@@ -75,10 +63,10 @@ router.post('/signin', async (req, res, next) => {
 
         req.logIn(user, async function (err) {
             if (err) {
-                //Tài khoản không tồn tại trong database
+
                 return res.render('signin/signin', {
                     layout: false,
-                    message: 'Tài khoản không tồn tại',
+                    message: 'Account does not exist!',
                     errorSystem: true,
                 });
             }
@@ -86,7 +74,6 @@ router.post('/signin', async (req, res, next) => {
 
             //User: user.Role = 1
             if (parseInt(user.Role) === 1) {
-                //Kiểm tra user phải lần đầu đăng nhập hay không??
                 if (parseInt(user.FirstActive) === 0)
                     return res.redirect(`/changePass?user=${user.Username}`);
 
@@ -110,12 +97,10 @@ router.post('/signin', async (req, res, next) => {
                 ':' +
                 today.getSeconds();
             const dateTime = date + ' ' + time;
-            req.session.startTime = dateTime; //lưu thời gian lúc mới đăng nhập(biến toàn cục)
-            req.session.activities = []; //Khởi tạo hoạt động cho manager
+            req.session.startTime = dateTime; 
+            req.session.activities = []; 
 
-            //Manager: user.Role = 3
-            //Kiểm tra user phải lần đầu đăng nhập hay không??
-            
+
             if (parseInt(user.FirstActive) === 0)
                 return res.redirect(`/createSecurity?user=${user.Username}`);
             return res.redirect('/manager');
@@ -143,7 +128,7 @@ router.post('/register', async (req, res) => {
         return res.render('signin/signin', {
             layout: false,
             firstSignin: true,
-            message: 'Tên tài khoản có độ dài từ [3, 16]',
+            message: 'Account name with word length [3, 16]',
             errorUser: true,
         });
 
@@ -153,7 +138,7 @@ router.post('/register', async (req, res) => {
         return res.render('signin/signin', {
             layout: false,
             firstSignin: true,
-            message: 'Tên tài khoản bắt đầu bằng chữ cái, gồm [a-z], [0-9]',
+            message: 'Account name starts with a letter, including [a-z], [0-9]',
             errorUser: true,
         });
 
@@ -162,20 +147,19 @@ router.post('/register', async (req, res) => {
         return res.render('signin/signin', {
             layout: false,
             firstSignin: true,
-            message: 'Mật khẩu có độ dài từ [5, 16]',
+            message: 'Passwords are word length [5, 16]',
             errorPass: true,
         });
 
-    //Kiểm tra mật khẩu và mật khẩu xác nhận có trùng không
     if (verifyPass != pwd)
         return res.render('signin/signin', {
             layout: false,
             firstSignin: true,
-            message: 'Mật khẩu không khớp',
+            message: 'Password incorrect',
             errorVerifyPass: true,
         });
 
-    // Chỉ đăng kí khi lần đầu app được mở nên không cần kiểm tra user có tồn tại.
+
     const pwdHashed = await bcrypt.hash(pwd, saltRounds);
     const securityQuesHashed = await bcrypt.hash(
         req.body.securityQuestion,
@@ -199,7 +183,6 @@ router.post('/register', async (req, res) => {
 });
 
 router.get('/changePass', async (req, res) => {
-    //Kiểm tra login, lần  đầu đăng nhập, có phải là user hay không???
     if (!req.user || req.user.Role != 1 || req.user.FirstActive != 0)
         return res.redirect('/');
 
@@ -217,7 +200,7 @@ router.post('/changePass', async (req, res) => {
             layout: false,
             User: req.query.user,
             error: true,
-            message: 'Nhập đầy đủ thông tin!',
+            message: 'Enter complete information!',
         });
 
     const user = await userModel.get(req.query.user);
@@ -226,14 +209,14 @@ router.post('/changePass', async (req, res) => {
         req.body.passOld,
         user.Password
     );
-    //Nhập pass cũ không khớp
+
     if (!challengeResultPassOld)
         return res.render('signin/changePass', {
             layout: false,
             User: req.query.user,
             error: true,
             errorPassOld: true,
-            message: 'Mật khẩu cũ không khớp!',
+            message: 'Old password does not match!',
         });
 
     const challengeResult = await bcrypt.compare(
@@ -241,38 +224,38 @@ router.post('/changePass', async (req, res) => {
         user.Password
     );
 
-    //Trùng pass hiện tại
+
     if (challengeResult)
         return res.render('signin/changePass', {
             layout: false,
             User: req.query.user,
             error: true,
             errorPassNew: true,
-            message: 'Mật khẩu trùng với mật khẩu cũ!',
+            message: 'The password is the same as the old password!',
         });
 
-    //Kiểm tra độ dài pass
+
     if (req.body.password.length < 5 || req.body.password.length > 16)
         return res.render('signin/changePass', {
             layout: false,
             User: req.query.user,
             error: true,
             errorPassNew: true,
-            message: 'Độ dài của pass thuộc đoạn [5, 16]!',
+            message: 'The length of the pass in the segment [5, 16]!',
         });
 
-    //2 pass không khớp
+
     if (req.body.VerifyPass != req.body.password) {
         return res.render('signin/changePass', {
             layout: false,
             User: req.query.user,
             error: true,
             errorVerifyPass: true,
-            message: 'Mật khẩu mới không khớp!',
+            message: 'New password does not match!',
         });
     }
 
-    //2 pass trùng nhau và khác pass hiện tại
+
     const pwdHashed = await bcrypt.hash(req.body.password, saltRounds);
     let account = {
         Username: req.query.user,
@@ -299,7 +282,7 @@ router.post('/forgotPass', async (req, res) => {
             layout: false,
             errorUser: true,
             error: true,
-            message: 'Tên tài khoản không tồn tại!',
+            message: 'Account name does not exist!',
         });
 
     //Kiểm tra câu hỏi
@@ -312,7 +295,7 @@ router.post('/forgotPass', async (req, res) => {
             layout: false,
             error: true,
             errorQuestion: true,
-            message: 'Sai câu hỏi bảo mật!',
+            message: 'Wrong security question!',
         });
 
     //Kiểm tra câu trả lời
@@ -325,7 +308,7 @@ router.post('/forgotPass', async (req, res) => {
             layout: false,
             error: true,
             errorAnswer: true,
-            message: 'Câu trả lời sai!',
+            message: 'Wrong answer!',
         });
 
     //Kiểm tra độ dài pass
@@ -334,7 +317,7 @@ router.post('/forgotPass', async (req, res) => {
             layout: false,
             error: true,
             errorPassNew: true,
-            message: 'Độ dài của pass thuộc đoạn [5, 16]!',
+            message: 'The length of the pass in the segment [5, 16]!',
         });
 
     //2 pass không khớp
@@ -343,7 +326,7 @@ router.post('/forgotPass', async (req, res) => {
             layout: false,
             error: true,
             errorVerifyPass: true,
-            message: 'Mật khẩu mới không khớp!',
+            message: 'New password does not match!',
         });
     }
 
@@ -371,7 +354,7 @@ router.get('/createSecurity', async (req, res) => {
 
 router.post('/createSecurity', async (req, res) => {
 
-    //Không cần kiểm tra dữ liệu có thiếu hya không vì client có 'required'
+
     const securityQuesHashed = await bcrypt.hash(
         req.body.securityQuestion,
         saltRounds

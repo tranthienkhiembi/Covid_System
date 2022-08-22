@@ -23,9 +23,9 @@ router.get('/', async (req, res) => {
     listMana[i].TimeEnd = listMana[i].TimeEnd.toISOString().replace(/T/, ' ').replace(/\..+/, '');
   }
 
-  // Kiểm tra việc thanh toán đã hoàn thành chưa, nếu đã thanh toán thì sửa Inform
+
   const consumeOfUser = await paymentModel.getConsume(req.user.Id);
-  const consumeOfUserPaid = await paymentModel.getConsumePaid(req.user.Id, 'Đã thanh toán');
+  const consumeOfUserPaid = await paymentModel.getConsumePaid(req.user.Id, 'Paid');
   var isInform = false;
   var inform = "";
 
@@ -35,11 +35,11 @@ router.get('/', async (req, res) => {
   }
 
   const listProfile = await profile.allByCat(req.user.Id);
-  // Nếu Inform của User là 1 thì hiện chuông thông báo
+
   if(listProfile[0].Inform > 0)
   {
     isInform = true;
-    inform = "Vui lòng thanh toán gói nhu yếu phẩm bạn đã mua";
+    inform = "Please pay for the package of necessities you purchased";
   }
   
   const historyPackage = await consume.allById(req.user.Id)
@@ -55,7 +55,7 @@ router.get('/', async (req, res) => {
     .replace(/\..+/, '');
   }
 
-  const debt = await consume.allByStatus(req.user.Id, 'Chưa thanh toán');
+  const debt = await consume.allByStatus(req.user.Id, 'Unpaid');
   let TotalDebt = 0;
   for (let i = 0; i  < debt.length; i++){
     TotalDebt += debt[i].Price;
@@ -67,12 +67,12 @@ router.get('/', async (req, res) => {
 
   listProfile[0].NamePlace = Place[0].NamePlace;
 
-  // Lịch sử thanh toán
+
   for (let index = 0; index < consumeOfUser.length; index++) {
     const user = await patientModel.getOne(consumeOfUser[index].IdUser);
     const packet = await packetModel.getOne(consumeOfUser[index].IdPackage);
 
-    // tìm ngày mua
+
     var timeBuy = consumeOfUser[index].Time.toISOString().replace(/T/, ' ').replace(/\..+/, '');
     timeBuy = timeBuy.slice(0, timeBuy.indexOf(" "));
 
@@ -86,7 +86,7 @@ router.get('/', async (req, res) => {
     profile: listProfile,
     empty: listMana.length === 0,
     empty1: historyPackage === 0,
-    title: 'Thông tin cá nhân',
+    title: 'Profile',
     active: { profile: true },
     isInform: isInform,
     inform: inform,
@@ -105,7 +105,7 @@ router.post('/', async (req, res) => {
 
   // Kiểm tra việc thanh toán đã hoàn thành chưa, nếu đã thanh toán thì sửa Inform
   const consumeOfUser = await paymentModel.getConsume(req.user.Id);
-  const consumeOfUserPaid = await paymentModel.getConsumePaid(req.user.Id, 'Đã thanh toán');
+  const consumeOfUserPaid = await paymentModel.getConsumePaid(req.user.Id, 'Paid');
   var isInform = false;
   var inform = "";
 
@@ -120,19 +120,18 @@ router.post('/', async (req, res) => {
   const Place = await place.allById(IdPlace[0].IdPlace);
 
   listProfile[0].NamePlace = Place[0].NamePlace;
-  // Nếu Inform của User là 1 thì hiện chuông thông báo
+
   if(listProfile[0].Inform > 0)
   {
     isInform = true;
-    inform = "Vui lòng thanh toán gói nhu yếu phẩm bạn đã mua";
+    inform = "Please pay for the package of necessities you purchased";
   }
 
-  // Lịch sử thanh toán
   for (let index = 0; index < consumeOfUser.length; index++) {
     const user = await patientModel.getOne(consumeOfUser[index].IdUser);
     const packet = await packetModel.getOne(consumeOfUser[index].IdPackage);
 
-    // tìm ngày mua
+
     var timeBuy = consumeOfUser[index].Time.toISOString().replace(/T/, ' ').replace(/\..+/, '');
     timeBuy = timeBuy.slice(0, timeBuy.indexOf(" "));
 
@@ -148,11 +147,11 @@ router.post('/', async (req, res) => {
   if (verifyPass != newPass) {
     return res.render('user/profile/infor', {
       title: 'Internet Banking',
-      msg: 'Password nhập lại không khớp!!',
+      msg: 'Password confirm does not match!',
       HistoryManager: listMana,
       profile: listProfile,
       empty: listMana.length === 0,
-      title: 'Thông tin cá nhân',
+      title: 'Profile',
       active: { profile: true },
       alert: true,
     });
@@ -165,11 +164,11 @@ router.post('/', async (req, res) => {
   if (challengeResult)
     return res.render('user/profile/infor', {
       title: 'Internet Banking',
-      msg: 'Mật khẩu mới trùng với mật khẩu cũ!',
+      msg: 'The new password is the same as the old password!',
       HistoryManager: listMana,
       profile: listProfile,
       empty: listMana.length === 0,
-      title: 'Thông tin cá nhân',
+      title: 'Profile',
       active: { profile: true },
       alert: true,
     });
@@ -187,7 +186,7 @@ router.post('/', async (req, res) => {
     HistoryManager: listMana,
     profile: listProfile,
     empty: listMana.length === 0,
-    title: 'Thông tin cá nhân',
+    title: 'Profile',
     active: { profile: true },
     isInform: isInform,
     inform: inform,

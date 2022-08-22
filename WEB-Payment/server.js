@@ -14,7 +14,7 @@ const cors = require("cors");
 
 require('./src/middlewares/handlebars')(app);
 require('./src/middlewares/session')(app);
-//require('./src/middlewares/decodeToken.middleware')(app);
+
 
 
 // Local

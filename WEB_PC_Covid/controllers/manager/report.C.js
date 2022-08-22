@@ -71,7 +71,7 @@ router.get('/', async (req, res) => {
         labelPackage: packageNameConsume.toString(),
         dataPackage: newPackageArr,
         isPackageEmpty,
-        labelProductDebt: '["Dư nợ, Thanh toán", "Lượng tiêu thụ sản phẩm"]',
+        labelProductDebt: '["Debt, Pay", "Product Consumption"]',
         dataProductDebt: newProductDebt,
         isProductDebtEmpty,
         Debt: ProductDebt[0],

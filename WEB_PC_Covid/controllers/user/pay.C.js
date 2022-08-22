@@ -61,7 +61,7 @@ router.post('/login', async (req, res) => {
   else {
     res.render('user/pay/payDetail', {
       title: 'Internet Banking',
-      msg: 'Sai tên đăng nhập hoặc mật khẩu',
+      msg: 'Wrong username or password',
       layout: false,
     });
   }
@@ -75,7 +75,7 @@ router.post('/changePass', async (req, res) => {
   if (verifyPass != newPass) {
     return res.render('user/pay/changePass', {
       title: 'Internet Banking',
-      msg: 'Password nhập lại không khớp với password mới',
+      msg: 'The confirm password does not match the new password',
       layout: false,
     });
   }
@@ -90,13 +90,13 @@ router.post('/changePass', async (req, res) => {
   if (!rs) {
     return res.render('user/pay/changePass', {
       title: 'Internet Banking',
-      msg: 'Password cũ không đúng!',
+      msg: 'Old password is not correct!',
       layout: false,
     });
   }
   res.render('user/pay/changePass', {
     title: 'Internet Banking',
-    alert: 'Đổi password thành công!',
+    alert: 'Change password successfully!',
     layout: false,
   });
 });
@@ -164,7 +164,7 @@ router.post('/payment', async (req, res) => {
   var money = 0;
   var payment = req.body.payment;
 
-  // lấy số dư hiện tại
+
   var balance = req.body.balance;
   var newbalance = ""
   for (var i = 0; i < balance.length; i++) {
@@ -173,7 +173,7 @@ router.post('/payment', async (req, res) => {
     newbalance += balance[i];
   }
 
-  // lấy tiền thanh toán
+
   var newpayment = ""
   for (var i = 0; i < payment.length; i++) {
     if (payment[i] == ',')
@@ -181,7 +181,6 @@ router.post('/payment', async (req, res) => {
     newpayment += payment[i];
   }
 
-  // Nếu tiền nhập lớn hơn hoặc bằng tiền thanh toán thì lấy tiền thanh toán
   if (parseInt(newpayment) <= parseInt(req.body.paymentMoney))
     money = parseInt(newpayment);
   else {
@@ -192,7 +191,7 @@ router.post('/payment', async (req, res) => {
       balance: parseInt(newbalance),
       Id: req.body.Id,
       payment: parseInt(newpayment),                   // TODO: need to be change with suitable data  
-      alert: 'Hãy nhập đủ số tiền cần thanh toán!',
+      alert: 'Please enter the full amount to pay!',
       money: money,
       isDonePayment: false
     });
@@ -210,7 +209,7 @@ router.post('/payment', async (req, res) => {
     if(req.session.IdConsume)
     {
         await paymentModel.updateStatus(
-            { Status: 'Đã thanh toán' },
+            { Status: 'Paid' },
             req.session.IdConsume
         );
     }
@@ -230,7 +229,7 @@ router.post('/payment', async (req, res) => {
 });
 
 router.get('/recharge', (req, res) => {
-  //Kiểm tra login
+
   if (!req.user || req.user.Role != 1) return res.redirect('/');
 
   req.session.pathCur = '/user/pay/recharge';
