@@ -65,7 +65,7 @@ router.post('/', async (req, res) => {
       IdPackage: cs[index].IdPackage,
       Time: cs[index].Time,
       CreditLimit: newCreditLimit[index],
-      Status: "Chưa thanh toán", 
+      Status: "Unpaid", 
       Price: cs[index].Price
     };
     await paymentModel.update(payment, cs[index].Id);
