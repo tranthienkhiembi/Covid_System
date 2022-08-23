@@ -846,7 +846,6 @@ INSERT INTO public."Product" ("Id", "Price", "NameProduct", "Unit") OVERRIDING S
 
 INSERT INTO public."ProductImg" ("Id", "IdProduct", "Img") OVERRIDING SYSTEM VALUE VALUES (1, 1, 'thit_heo_1.jpg');
 INSERT INTO public."ProductImg" ("Id", "IdProduct", "Img") OVERRIDING SYSTEM VALUE VALUES (2, 1, 'thit_heo_2.jpg');
-INSERT INTO public."ProductImg" ("Id", "IdProduct", "Img") OVERRIDING SYSTEM VALUE VALUES (3, 1, 'thit_heo_3.jpg');
 INSERT INTO public."ProductImg" ("Id", "IdProduct", "Img") OVERRIDING SYSTEM VALUE VALUES (4, 2, 'ca_thu_1.jpg');
 INSERT INTO public."ProductImg" ("Id", "IdProduct", "Img") OVERRIDING SYSTEM VALUE VALUES (5, 2, 'ca_thu_2.jpg');
 INSERT INTO public."ProductImg" ("Id", "IdProduct", "Img") OVERRIDING SYSTEM VALUE VALUES (6, 2, 'ca_thu_3.jpg');
