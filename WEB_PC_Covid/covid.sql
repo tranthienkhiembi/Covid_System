@@ -799,6 +799,15 @@ INSERT INTO public."Place" ("Id", "NamePlace", "Size", "Amount", "Role") OVERRID
 INSERT INTO public."Place" ("Id", "NamePlace", "Size", "Amount", "Role") OVERRIDING SYSTEM VALUE VALUES (9, 'Bệnh viện Phạm Ngọc Thạch', 22000, 20000, 1);
 INSERT INTO public."Place" ("Id", "NamePlace", "Size", "Amount", "Role") OVERRIDING SYSTEM VALUE VALUES (10, 'Bệnh viện bệnh nhiệt đới', 5000, 4000, 0);
 INSERT INTO public."Place" ("Id", "NamePlace", "Size", "Amount", "Role") OVERRIDING SYSTEM VALUE VALUES (11, 'Bệnh viện Nhi Đồng', 1000, 1000, 0);
+INSERT INTO public."Place" ("Id", "NamePlace", "Size", "Amount", "Role") OVERRIDING SYSTEM VALUE VALUES (12, 'Bệnh viện Bạch Mai', 6000, 4000, 1);
+INSERT INTO public."Place" ("Id", "NamePlace", "Size", "Amount", "Role") OVERRIDING SYSTEM VALUE VALUES (13, 'Bệnh viện Hữu Nghị', 8000, 5000, 0);
+INSERT INTO public."Place" ("Id", "NamePlace", "Size", "Amount", "Role") OVERRIDING SYSTEM VALUE VALUES (14, 'Viện Răng-Hàm-Mặt', 10000, 7000, 1);
+INSERT INTO public."Place" ("Id", "NamePlace", "Size", "Amount", "Role") OVERRIDING SYSTEM VALUE VALUES (15, 'Bệnh viện Thống Nhất', 9000, 8000, 0);
+INSERT INTO public."Place" ("Id", "NamePlace", "Size", "Amount", "Role") OVERRIDING SYSTEM VALUE VALUES (16, 'Bệnh viện Quân y 175', 3000, 1000, 1);
+INSERT INTO public."Place" ("Id", "NamePlace", "Size", "Amount", "Role") OVERRIDING SYSTEM VALUE VALUES (17, 'Bệnh viện Từ Dũ', 12000, 10000, 0);
+INSERT INTO public."Place" ("Id", "NamePlace", "Size", "Amount", "Role") OVERRIDING SYSTEM VALUE VALUES (18, 'Bệnh viện Vạn Hạnh', 2000, 1000, 1);
+INSERT INTO public."Place" ("Id", "NamePlace", "Size", "Amount", "Role") OVERRIDING SYSTEM VALUE VALUES (19, 'Bệnh viện y học cổ truyền Cần Thơ', 4000, 2000, 0);
+INSERT INTO public."Place" ("Id", "NamePlace", "Size", "Amount", "Role") OVERRIDING SYSTEM VALUE VALUES (20, 'Bệnh Viện Da Liễu', 3000, 1000, 1);
 INSERT INTO public."Place" ("Id", "NamePlace", "Size", "Amount", "Role") OVERRIDING SYSTEM VALUE VALUES (3, 'Bệnh viện Đa Khoa', 9500, 2062, 1);
 INSERT INTO public."Place" ("Id", "NamePlace", "Size", "Amount", "Role") OVERRIDING SYSTEM VALUE VALUES (1, 'Bệnh viện dã chiến Củ Chi', 15000, 12007, 1);
 

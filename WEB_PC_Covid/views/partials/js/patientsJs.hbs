@@ -115,11 +115,11 @@
             var pattern = /\b\d{12}\b/g;
             const idNumber = $('#IdNumberAddF0').val();
             if (idNumber == '') {
-                $('#MessageValidateAddF0').html("Không được bỏ trống số CMND");
+                $('#MessageValidateAddF0').html("Do not leave the ID number blank");
                 $('#MessageValidateAddF0').show(300);
             }
             else if (!pattern.test(idNumber)) {
-                $('#MessageValidateAddF0').html("Số CMND là 1 dãy số gồm 12 chữ số!");
+                $('#MessageValidateAddF0').html("ID number is a sequence of 12 digits!");
                 $('#MessageValidateAddF0').show(300);
             }
         });
@@ -149,11 +149,11 @@
             var pattern = /\b\d{12}\b/g;
             const idNumber = $('#IdNumberRelated{{Id}}').val();
             if (idNumber == '') {
-                $('#MessageValidateRelated{{Id}}').html("Không được bỏ trống số CMND");
+                $('#MessageValidateRelated{{Id}}').html("Do not leave the ID number blank");
                 $('#MessageValidateRelated{{Id}}').show(300);
             }
             else if (!pattern.test(idNumber)) {
-                $('#MessageValidateRelated{{Id}}').html("Số CMND là 1 dãy số gồm 12 chữ số!");
+                $('#MessageValidateRelated{{Id}}').html("ID number is a sequence of 12 digits!");
                 $('#MessageValidateRelated{{Id}}').show(300);
             }
         });
