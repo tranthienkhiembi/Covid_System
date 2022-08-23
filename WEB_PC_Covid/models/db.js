@@ -6,7 +6,7 @@ const cn = {
     user: 'postgres',
     host: 'localhost',
     database: 'covidData', // điền tên db trên máy của mình vào
-    password: 'Jzm32z', // điền password master
+    password: '123456', // điền password master
     port: 5432,
     max: 30,
 };

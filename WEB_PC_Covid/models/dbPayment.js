@@ -11,11 +11,10 @@ const schema = 'public';
 //     max: 30,
 // };
 const cn = {
-    user: 'txwvjoistbmnud',
-    host: 'ec2-44-199-52-133.compute-1.amazonaws.com',
-    database: 'dt8tbdn3n8lr1', // điền tên db trên máy của mình vào
-    password:
-        'ee1ccd1e6272c03cb35e926675f13c61d18c0de38b21997e66b4947bd3d34afc', // điền cái password master
+    user: 'postgres',
+    host: 'localhost',
+    database: 'covidData', // điền tên db trên máy của mình vào
+    password: '123456', // điền password master
     port: 5432,
     max: 30,
     ssl: {
