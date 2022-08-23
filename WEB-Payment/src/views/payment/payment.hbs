@@ -9,31 +9,34 @@
   @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 
   .login-block {
-    background: #DE6262;
+    background: #41F65C;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);
+    background: -webkit-linear-gradient(to bottom, #2ADBD0, #41F65C);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #FFB88C, #DE6262);
+    background: linear-gradient(to bottom, #2ADBD0, #41F65C);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     float: left;
     width: 100%;
     width: 100%;
+    height: 100%;
     padding: 50px 0;
   }
 
   .banner-sec {
-    background: url(/assets/login/images/logo_pay.jpg);
+    background: url(/assets/login/images/ic_system.png);
     background-size: auto;
     background-repeat: no-repeat;
     min-height: 650px;
+    margin-top: 50px;
     border-radius: 0 10px 10px 0;
-    padding: 0;
+
   }
 
   .container {
-    background: #fff;
+    background: rgba(254, 255, 254, 0.632);
     border-radius: 10px;
     box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
   }
 
   .carousel-inner {
@@ -46,7 +49,7 @@
   }
 
   .login-sec {
-    padding: 50px 70px;
+    padding: 20px 70px;
     position: relative;
   }
 
@@ -59,25 +62,25 @@
   }
 
   .login-sec .copy-text i {
-    color: #FEB58A;
+    color: #4bebbb;
   }
 
   .login-sec .copy-text a {
-    color: #E36262;
+    color: #4bebbb;
   }
 
   .login-sec h2 {
     margin-bottom: 30px;
     font-weight: 800;
     font-size: 30px;
-    color: #DE6262;
+    color: #4bebbb;
   }
 
   .login-sec h2:after {
     content: " ";
     width: 100px;
     height: 5px;
-    background: #FEB58A;
+    background: #4bebbb;
     display: block;
     margin-top: 20px;
     border-radius: 3px;
@@ -86,7 +89,7 @@
   }
 
   .btn-login {
-    background: #DE6262;
+    background: #4bebbb;
     color: #fff;
     font-weight: 600;
   }
@@ -125,8 +128,9 @@
     margin-bottom: 10px;
     font-weight: 800;
     font-size: 20px;
-    color: #DE6262;
+    color: #4bebbb;
   }
+
 </style>
 
 <section class="login-block">
@@ -137,18 +141,18 @@
         <br>
         <form method="GET">
           <label class="sr-only" for="money"></label>
-          <div class="input-group mb-2">
+          <div class="input-group mb-2" style="margin-left:30px">
             <div class="form-group">
               <label class="text2">Account number:</label>
-              <div class="input-group">
-                <input type="text" readonly class="form-control balance" name="balance" value="{{Id}}">
+              <div class="input-group" >
+                <input type="text" readonly class="form-control balance" name="balance" value="{{Id}}" style="color: #026b4c;" >
               </div>
             </div>
             <div class="form-group">
               <label class="text2">Balance:</label>
               <div class="input-group">
-                <input type="text" readonly class="form-control balance" name="balance" value="{{balance}}">
-                <span class="input-group-text">VNĐ</span>
+                <input type="text" readonly class="form-control balance" name="balance" value="{{balance}}" style="color: #026b4c;">
+                <span class="input-group-text" style="color: #026b4c;">VNĐ</span>
               </div>
             </div>
           </div>
@@ -160,7 +164,7 @@
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item">
-              <img class="d-block img-fluid " src="/assets/login/images/logo_pay.jpg" width="100px" alt="First slide">
+              <img class="d-block img-fluid " src="/assets/login/images/ic_system.png" width="100px" alt="First slide" >
               <div class="carousel-caption d-none d-md-block">
               </div>
             </div>
