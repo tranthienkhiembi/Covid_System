@@ -2,25 +2,25 @@ const pgp = require('pg-promise')({
     capSQL: true,
 });
 const schema = 'public';
-// const cn = {
-//     user: 'postgres',
-//     host: 'localhost',
-//     database: 'ThanhToan', // điền tên db trên máy của mình vào
-//     password: '0927022304', // điền cái password master
-//     port: 5432,
-//     max: 30,
-// };
 const cn = {
     user: 'postgres',
     host: 'localhost',
-    database: 'covidData', // điền tên db trên máy của mình vào
-    password: '123456', // điền password master
+    database: 'payment', // điền tên db trên máy của mình vào
+    password: '123456', // điền cái password master
     port: 5432,
     max: 30,
-    ssl: {
-        rejectUnauthorized: false,
-    },
 };
+// const cn = {
+//     user: 'postgres',
+//     host: 'localhost',
+//     database: 'covidData', // điền tên db trên máy của mình vào
+//     password: '123456', // điền password master
+//     port: 5432,
+//     max: 30,
+//     ssl: {
+//         rejectUnauthorized: false,
+//     },
+// };
 const db = pgp(cn);
 exports.add = async (tbName, entity) => {
     const table = new pgp.helpers.TableName({ table: tbName, schema: schema });
