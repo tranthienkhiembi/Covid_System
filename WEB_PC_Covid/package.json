@@ -1,5 +1,5 @@
 {
-  "name": "pc_covid",
+  "name": "covid_system",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -8,7 +8,7 @@
     "dev": "nodemon server.js"
   },
   "keywords": [],
-  "author": "19120483-19120492-19120493-19120593",
+  "author": "20126021-20126039-20126044",
   "license": "ISC",
   "dependencies": {
     "alert": "^5.0.10",
