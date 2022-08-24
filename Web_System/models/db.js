@@ -5,7 +5,7 @@ const schema = 'public';
 const cn = {
     user: 'postgres',
     host: 'localhost',
-    database: 'covidData', // điền tên db 
+    database: 'datatest', // điền tên db 
     password: '123456', // điền password master
     port: 5432,
     max: 30,

@@ -16,10 +16,6 @@ const jwtAuthentication = async (req, res, next) => {
         message: "Unauthorized",
       });
     }
-  } else {
-    res.status(400).json({
-      message: "Unauthorized",
-    });
   }
 };
 

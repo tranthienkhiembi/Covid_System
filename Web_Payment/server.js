@@ -1,7 +1,7 @@
 // Environment constants
 require("dotenv").config();
 
-// Third-party packages
+
 
 const express = require("express"),
   app = express(),
