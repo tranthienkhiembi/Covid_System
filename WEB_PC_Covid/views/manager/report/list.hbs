@@ -43,9 +43,9 @@
                 </div>
                 <canvas id="myChart2"></canvas>
             {{else}}
+                <div>Debt, Pay: {{Debt}}</div>
+                <div>Total product consumption: {{Product}}</div>
                 <canvas id="myChart2" data-label="{{labelProductDebt}}" data-data="{{dataProductDebt}}"></canvas>
-                <div>Tổng số dư nợ: {{Debt}}</div>
-                <div>Tổng lượng tiêu thụ sản phẩm: {{Product}}</div>
             {{/if}}
         </div>
     </div>
@@ -121,7 +121,7 @@
         data: {
             labels: $("#myChart1").data("label"),
             datasets: [{
-                label: 'Lượng tiêu thụ các gói Nhu yếu phẩm',
+                label: 'Consumption of Necessary Packages',
                 data: $("#myChart1").data("data"),
                 backgroundColor: bg_color,
                 borderColor: border_color,
@@ -143,7 +143,7 @@
         data: {
             labels: $("#myChart2").data("label"),
             datasets: [{
-                label: 'Dư nợ và Lượng tiêu thụ sản phẩm',
+                label: 'Outstanding balance and product consumption',
                 data: $("#myChart2").data("data"),
                 backgroundColor: bg_color,
                 borderColor: border_color,

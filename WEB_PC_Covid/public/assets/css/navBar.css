@@ -158,10 +158,23 @@ ul.CTAs {
 }
 .bg-chart{
     width: 600px;
-    height: 430px;
+    height: 420px;
     margin-bottom: 10px;
 }
 #myChart{
+    border: 2px solid black;
+    box-shadow: #363740 4px 4px 2px 2px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+#myChart1{
+    border: 2px solid black;
+    box-shadow: #363740 4px 4px 2px 2px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-top: 10%;
+}
+#myChart2{
     border: 2px solid black;
     box-shadow: #363740 4px 4px 2px 2px;
     background-color: #ffffff;
