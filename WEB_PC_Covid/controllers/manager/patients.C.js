@@ -355,7 +355,7 @@ router.post('/update/:id', async (req, res) => {
         userRelated[i].Status = status;
         await patientModel.updateUser(userRelated[i], userRelated[i].Id);
     }
-    //update history user
+    
     const allHistoryUser = await patientModel.loadHistory(user.Id);
     let oldHistory = {};
     for (let i = 0; i < allHistoryUser.length; i++) {

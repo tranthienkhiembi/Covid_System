@@ -5,7 +5,7 @@ const schema = 'public';
 const cn = {
     user: 'postgres',
     host: 'localhost',
-    database: 'covidData', // điền tên db trên máy của mình vào
+    database: 'covidData', // điền tên db 
     password: '123456', // điền password master
     port: 5432,
     max: 30,
@@ -18,7 +18,7 @@ exports.load = async (tbName, orderBy) => {
         `SELECT * FROM $1 ORDER BY "${orderBy}" ASC `,
         table
     );
-    //console.log(qStr);
+    
     try {
         const res = await db.any(qStr);
         return res;
@@ -34,7 +34,7 @@ exports.loadPage = async (tbName, limit, offset, condition, orderBy) => {
         condition +
         ` ORDER BY "${orderBy}" ASC ` +
         ` LIMIT ${limit} OFFSET ${offset}`;
-    //console.log(qStr);
+    
     try {
         const res = await db.any(qStr);
         return res;
@@ -107,7 +107,7 @@ exports.count = async (tbName, idFieldName, condition) => {
             `SELECT count("${idFieldName}") AS "Size" FROM $1`,
             table
         ) + condition;
-    //console.log(qStr);
+    
     try {
         const res = await db.any(qStr);
         return res;
@@ -122,7 +122,7 @@ exports.get = async (tbName, fieldName, value) => {
         `SELECT * FROM $1 WHERE "${fieldName}"='${value}'`,
         table
     );
-    //console.log(qStr);
+    
     try {
         const res = await db.any(qStr);
         return res;
@@ -134,7 +134,7 @@ exports.get = async (tbName, fieldName, value) => {
 exports.add = async (tbName, entity) => {
     const table = new pgp.helpers.TableName({ table: tbName, schema: schema });
     const qStr = pgp.helpers.insert(entity, null, table) + ' RETURNING *';
-    //console.log(qStr);
+    
     try {
         const res = await db.one(qStr);
         return res;
@@ -161,7 +161,7 @@ exports.del = async (tbName, condition) => {
     const table = new pgp.helpers.TableName({ table: tbName, schema: schema });
 
     const qStr = pgp.as.format(`DELETE FROM $1 `, table) + condition;
-    //console.log(qStr);
+    
     try {
         const res = await db.any(qStr);
         return res;
@@ -177,7 +177,7 @@ exports.IdMax = async (tbName, filedName) => {
         `SELECT max("${filedName}") as "Max" FROM $1 `,
         table
     );
-    //console.log(qStr);
+    
     try {
         const res = await db.any(qStr);
         return res;

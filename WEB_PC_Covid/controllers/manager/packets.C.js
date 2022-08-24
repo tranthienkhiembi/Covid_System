@@ -23,8 +23,8 @@ router.get('/', async (req, res) => {
       nameProduct[0].images = await productModel.loadImage(nameProduct[0].Id);
       nameProducts.push(nameProduct[0]);    
     }
-
-    list[index].products = nameProducts;    // Lưu danh sách các sản phẩm có trong gói
+    // Lưu danh sách các sản phẩm có trong gói
+    list[index].products = nameProducts;    
 
     var indexUnchecked = new Array();   
     nameProducts.forEach(element => {
@@ -35,14 +35,14 @@ router.get('/', async (req, res) => {
     });
     
     indexUnchecked.sort(compareNumbers);
- 
+
     var minus = 0;
     indexUnchecked.forEach(element => {
       allProductsUnChecked.splice(element - minus, 1);
       minus++;
     });
-
-    list[index].uncheckedProducts = allProductsUnChecked;     // lưu danh sách các sản phẩm không nằm trong gói
+    // lưu danh sách các sản phẩm không nằm trong gói
+    list[index].uncheckedProducts = allProductsUnChecked;     
   }
   
   req.session.pathCur = `/manager/packets`;
@@ -338,7 +338,7 @@ router.get('/search', async(req, res) => {
       minus++;
     });
 
-    list[index].uncheckedProducts = allProductsUnChecked;     // lưu danh sách các sản phẩm không nằm trong gói
+    list[index].uncheckedProducts = allProductsUnChecked;    
   }
   
   req.session.activities.push(`${req.user.name} search for essential packages with keywords ${search}`);

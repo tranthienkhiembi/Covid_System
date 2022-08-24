@@ -67,10 +67,7 @@
         $('select[name="province"]').on('change', async function () {
             var provinceId = $(this).val();
             loadDistrict(provinceId);
-            //var districtId = $('select[name="district"]').val();
 
-            //console.log(districtId);
-            //await loadWard(districtId);
         });
         $('select[name="district"]').on('change', function () {
             var districtId = $(this).val();
@@ -95,15 +92,15 @@
         }
 
         $('#NameAddF0').blur(() => {
-            //const pattern = /[A-Za - z]/;
+
             var pattern = /^[a-zA-Z ]{2,}$/g;
             const name = $('#NameAddF0').val();
             if (name == '') {
-                $('#MessageValidateAddF0').html("Không được bỏ trống họ tên");
+                $('#MessageValidateAddF0').html("Names cannot be left blank");
                 $('#MessageValidateAddF0').show(300);
             }
             else if (!pattern.test(removeAscent(name))) {
-                $('#MessageValidateAddF0').html("Họ tên chỉ bao gồm chữ!");
+                $('#MessageValidateAddF0').html("Names only include letters!");
                 $('#MessageValidateAddF0').show(300);
             }
         });
@@ -111,7 +108,7 @@
             $('#MessageValidateAddF0').hide();
         });
         $('#IdNumberAddF0').blur(() => {
-            //const pattern = /[A-Za - z]/;
+
             var pattern = /\b\d{12}\b/g;
             const idNumber = $('#IdNumberAddF0').val();
             if (idNumber == '') {
@@ -129,15 +126,15 @@
             $('#MessageValidateRelated{{Id}}').hide();
         });
         $('#NameRelated{{Id}}').blur(() => {
-            //const pattern = /[A-Za - z]/;
+
             var pattern = /^[a-zA-Z ]{2,}$/g;
             const name = $('#NameRelated{{Id}}').val();
             if (name == '') {
-                $('#MessageValidateRelated{{Id}}').html("Không được bỏ trống họ tên");
+                $('#MessageValidateRelated{{Id}}').html("Names cannot be left blank");
                 $('#MessageValidateRelated{{Id}}').show(300);
             }
             else if (!pattern.test(removeAscent(name))) {
-                $('#MessageValidateRelated{{Id}}').html("Họ tên chỉ bao gồm chữ!");
+                $('#MessageValidateRelated{{Id}}').html("Names only include letters!");
                 $('#MessageValidateRelated{{Id}}').show(300);
             }
         });
@@ -145,7 +142,7 @@
             $('#MessageValidateRelated{{Id}}').hide();
         });
         $('#IdNumberRelated{{Id}}').blur(() => {
-            //const pattern = /[A-Za - z]/;
+
             var pattern = /\b\d{12}\b/g;
             const idNumber = $('#IdNumberRelated{{Id}}').val();
             if (idNumber == '') {
@@ -157,7 +154,7 @@
                 $('#MessageValidateRelated{{Id}}').show(300);
             }
         });
-        //loadPlace($('#inputStatus{{Id}}').val(), {{Id}});
+
         $('#inputStatus{{Id}}').on('change', function () {
             var status = $(this).val();
             console.log(status);

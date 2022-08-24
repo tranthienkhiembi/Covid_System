@@ -5,27 +5,17 @@ const schema = 'public';
 const cn = {
     user: 'postgres',
     host: 'localhost',
-    database: 'payment', // điền tên db trên máy của mình vào
-    password: '123456', // điền cái password master
+    database: 'payment', // điền tên db 
+    password: '123456', // điền password master
     port: 5432,
     max: 30,
 };
-// const cn = {
-//     user: 'postgres',
-//     host: 'localhost',
-//     database: 'covidData', // điền tên db trên máy của mình vào
-//     password: '123456', // điền password master
-//     port: 5432,
-//     max: 30,
-//     ssl: {
-//         rejectUnauthorized: false,
-//     },
-// };
+
 const db = pgp(cn);
 exports.add = async (tbName, entity) => {
     const table = new pgp.helpers.TableName({ table: tbName, schema: schema });
     const qStr = pgp.helpers.insert(entity, null, table) + ' RETURNING *';
-    //console.log(qStr);
+    
     try {
         const res = await db.one(qStr);
         return res;
@@ -39,7 +29,7 @@ exports.get = async (tbName, fieldName, value) => {
         `SELECT * FROM $1 WHERE "${fieldName}"='${value}'`,
         table
     );
-    //console.log(qStr);
+    
     try {
         const res = await db.any(qStr);
         return res;

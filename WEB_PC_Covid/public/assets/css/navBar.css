@@ -1,6 +1,4 @@
-/*
-    DEMO STYLE
-*/
+
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
@@ -212,7 +210,7 @@ ul.CTAs {
     background-color: #fffdfd;
 }
 .location{
-    margin-left: 215px;
+    margin-left: 20.9rem;
 }
 .card-title{
     font-size: 1.4em;

@@ -152,7 +152,7 @@
             <div class="modal-content">
                 <form method="post" action="/manager/packets/add">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Thêm gói nhu yếu phẩm</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add packages</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -162,7 +162,7 @@
                             <div class="checkNameAdd"></div>
                         </div>
                         <div class="form-group mb-2">
-                            <label for="productOfPacket">Danh sách các sản phẩm: </label>
+                            <label for="productOfPacket">List of products: </label>
                             <br>
                             <ul style="list-style-type: none;">
                                 {{#each allProducts}}
@@ -205,7 +205,7 @@
             <div class="modal-content">
                 <form method="post" action="/manager/packets/update/{{Id}}">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Sửa gói nhu yếu phẩm</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Edit the package of necessities</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -215,7 +215,7 @@
                             <div class="checkNameEdit"></div>
                         </div>
                         <div class="form-group mb-2">
-                            <label for="productOfPacket">Danh sách các sản phẩm: </label>
+                            <label for="productOfPacket">List of products: </label>
                             <br>
                             <ul style="list-style-type: none;">
                                 {{#each products}}
@@ -225,7 +225,7 @@
                                 </li>
                                 {{/each}}
                             </ul>
-                            <label for="notProductOfPacket">Danh sách sản phẩm không nằm trong gói: </label>
+                            <label for="notProductOfPacket">List of products not included in the package: </label>
                             <br>
                             <ul style="list-style-type: none;">
                                 {{#each uncheckedProducts}}
@@ -269,12 +269,12 @@
                 <form method="post" action="/manager/packets/delete/{{Id}}">
                     <div class="modal-header">
                         <div class="form-group mb-2 h2">
-                            Xóa gói như yếu phẩm
+                            Delete the package of necessities
                         </div>
                     </div>
                     <div class="modal-body">
                         <div class="form-group mb-2">
-                            Bạn thực sự muốn xóa <strong>{{NamePackage}}</strong>?
+                            Confirm delete<strong>{{NamePackage}}</strong>?
                             <input type="text" name="Id" value="{{Id}}" hidden />
                         </div>
                     </div>
@@ -312,7 +312,7 @@
 <script>
     $(document).ready(function() {
         $(".carousel-item:nth-child(1)").addClass("active");
-        // ẩn nút search khi không có tìm kiếm
+
         $('.btn-search').prop('disabled', true);
         $('.search-box').keyup(function() {
             if($(this).val().length != 0) {
@@ -323,7 +323,7 @@
             }
         });
 
-        // Kiểm tra ràng buộc các ô được nhập
+
         function alert(message, type, element) {
             $(`.check${element}Edit`).html('<div class="alert alert-' + type + ' d-flex align-items-center mt-1 alert-dismissible" role="alert"> <i class="fas fa-exclamation-triangle"></i> <div>' + message + '</div><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
         }
@@ -332,7 +332,7 @@
             $(`.check${element}Add`).html('<div class="alert alert-' + type + ' d-flex align-items-center mt-1 alert-dismissible" role="alert"> <i class="fas fa-exclamation-triangle"></i> <div>' + message + '</div><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
         }
 
-        // Kiêm tra ràng buộc ở chỉnh sửa
+
         var checkName = 1, checkProduct = 1, checkPacket = 1, checkTime = 1;
         $('.packetNameEdit').keyup(function() {
             if($(this).val().length != 0)
@@ -345,7 +345,7 @@
             else
             {
                 checkName = 0;
-                alert('Vui lòng điền tên gói sản phẩm!', 'danger', 'Name');
+                alert('Please enter the product package name!', 'danger', 'Name');
                 $('.btn-edit').prop('disabled', true);
             }
         });
@@ -360,7 +360,7 @@
             else
             {
                 checkProduct = 0;
-                alert('Vui lòng điền mức giới hạn số lượng mỗi sản phẩm trong gói!', 'danger', 'Product');
+                alert('Please enter the quantity limit for each product in the package!', 'danger', 'Product');
                 $('.btn-edit').prop('disabled', true);
             }   
         });
@@ -375,7 +375,7 @@
             else
             {
                 checkPacket = 0;
-                alert('Vui lòng điền mức giới hạn gói cho mỗi người theo thời gian!', 'danger', 'Packet');
+                alert('Please fill in the package limit per person from time to time!', 'danger', 'Packet');
                 $('.btn-edit').prop('disabled', true);
             }
         });
@@ -390,12 +390,11 @@
             else
             {
                 checkTime = 0;
-                alert('Vui lòng điền thời gian giới hạn của gói!', 'danger', 'Time');
+                alert('Please fill in the limited time of the package!', 'danger', 'Time');
                 $('.btn-edit').prop('disabled', true);
             }
         });
 
-        // Kiểm tra ràng buộc khi thêm sản phẩm
         var checkNameAdd = 0, checkProductAdd = 0, checkPacketAdd = 0, checkTimeAdd = 0;
         $('.btn-add').prop('disabled', true);
         $('.packetNameAdd').keyup(function() {
@@ -409,7 +408,7 @@
             else
             {
                 checkNameAdd = 0;
-                alertAdd('Vui lòng điền tên gói sản phẩm!', 'danger', 'Name');
+                alertAdd('Please fill in the limited time of the package!', 'danger', 'Name');
                 $('.btn-add').prop('disabled', true);
             }
         });
@@ -424,7 +423,7 @@
             else
             {
                 checkProductAdd = 0;
-                alertAdd('Vui lòng điền mức giới hạn số lượng mỗi sản phẩm trong gói!', 'danger', 'Product');
+                alertAdd('Please enter the quantity limit for each product in the package!', 'danger', 'Product');
                 $('.btn-add').prop('disabled', true);
             }   
         });
@@ -439,7 +438,7 @@
             else
             {
                 checkPacketAdd = 0;
-                alertAdd('Vui lòng điền mức giới hạn gói cho mỗi người theo thời gian!', 'danger', 'Packet');
+                alertAdd('Please fill in the package limit per person from time to time!', 'danger', 'Packet');
                 $('.btn-add').prop('disabled', true);
             }
         });
@@ -454,7 +453,7 @@
             else
             {
                 checkTimeAdd = 0;
-                alertAdd('Vui lòng điền thời gian giới hạn của gói!', 'danger', 'Time');
+                alertAdd('Please fill in the limited time of the package!', 'danger', 'Time');
                 $('.btn-add').prop('disabled', true);
             }
         }); 

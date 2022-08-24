@@ -5,7 +5,7 @@ const packetModel = require('../../models/manager/packet.M');
 
 router.get('/', async (req, res) => {
     if (!req.user || parseInt(req.user.Role) != 3) return res.redirect('/');
-    // thống kê số lượng người ở từng trạng thái theo thời gian.
+    
     var StatusArr = new Array();
     var isStatusEmpty = true;
 
