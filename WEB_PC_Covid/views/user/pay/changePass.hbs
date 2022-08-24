@@ -6,15 +6,16 @@
   @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 
   .login-block {
-    background: #DE6262;
+    background: #41F65C;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(-135deg, #41F65C, #2ADBD0);
+    background: -webkit-linear-gradient(to bottom, #2ADBD0, #41F65C);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(-135deg, #41F65C, #2ADBD0);
+    background: linear-gradient(to bottom, #2ADBD0, #41F65C);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     float: left;
     width: 100%;
     width: 100%;
+    height: 929px;
     padding: 50px 0;
   }
 
@@ -22,15 +23,17 @@
     background: url(/assets/login/images/ic_system.png);
     background-size: auto;
     background-repeat: no-repeat;
-    min-height: 610px;
+    min-height: 650px;
+    margin-top: 50px;
     border-radius: 0 10px 10px 0;
-    padding: 0;
+
   }
 
   .container {
-    background: #fff;
+    background: rgba(254, 255, 254, 0.75);
     border-radius: 10px;
     box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
   }
 
   .carousel-inner {
@@ -43,7 +46,7 @@
   }
 
   .login-sec {
-    padding: 50px 70px;
+    padding: 20px 70px;
     position: relative;
   }
 
@@ -56,34 +59,34 @@
   }
 
   .login-sec .copy-text i {
-    color: #FEB58A;
+    color: #2eb78e;
   }
 
   .login-sec .copy-text a {
-    color: #E36262;
+    color: #2eb78e;
   }
 
   .login-sec h2 {
     margin-bottom: 30px;
     font-weight: 800;
     font-size: 30px;
-    color: #DE6262;
+    color: #2eb78e;
   }
 
   .login-sec h2:after {
     content: " ";
     width: 100px;
     height: 5px;
-    background: #FEB58A;
+    background: #2eb78e;
     display: block;
-    margin-top: 20px;
+    margin-top: 30px;
     border-radius: 3px;
     margin-left: auto;
     margin-right: auto
   }
 
   .btn-login {
-    background: #DE6262;
+    background: #2eb78e;
     color: #fff;
     font-weight: 600;
   }
@@ -113,6 +116,17 @@
   .banner-text p {
     color: #fff;
   }
+
+  .link-back {
+    text-decoration: none;
+  }
+
+  .text2 {
+    margin-bottom: 10px;
+    font-weight: 800;
+    font-size: 20px;
+    color: #2eb78e;
+  }
 </style>
 <section class="login-block">
   <div class="container">
@@ -125,17 +139,17 @@
             <div class="alert alert-danger" role="alert" id="MessageValidate">{{msg}}</div>
           </div>
           {{/if}}
-          <div class="form-group">
-            <label for="exampleInputPassword1">Old password:</label>
+          <div class="form-group text2">
+            <label  for="exampleInputPassword1">Old password:</label>
             <input type="password" class="form-control box-input" id="oldPass" placeholder="Password" name="oldPass">
           </div>
 
-          <div class="form-group">
+          <div class="form-group text2">
             <label for="exampleInputNewPassword">New password:</label>
             <input type="password" class="form-control box-input" id="newPass" placeholder="Password" name="newPass">
           </div>
 
-          <div class="form-group">
+          <div class="form-group text2">
             <label for="exampleInputNewPassword2">Confirm password:</label>
             <input type="password" class="form-control box-input" id="verifyPass" placeholder="Password"
               name="verifyPass">
@@ -143,7 +157,7 @@
 
           <div class="form-check">
             <button type="submit" class="btn btn-login float-right" id="change-btn" formaction="/user/pay/changePass"
-              formmethod="post">Change</button>
+              formmethod="post" style="background: rgb(9, 209, 9)">Change</button>
           </div>
         </form>
       </div>
