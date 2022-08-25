@@ -69,10 +69,10 @@ app.use("/login", loginApi);
 
 // https.createServer({ key, cert }, app).listen(process.env.PORT, () => {
 //   console.log(
-//     `Example app listening on port https://localhost:${process.env.PORT}`
+//     ` port https://localhost:${process.env.PORT}`
 //   );
 // });
 // Listening
 app.listen(process.env.PORT, () => {
-  console.log(`Server is listening on port http://localhost:${process.env.PORT}`);
+  console.log(` port http://localhost:${process.env.PORT}`);
 });

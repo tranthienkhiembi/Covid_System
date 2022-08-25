@@ -18,7 +18,7 @@ exports.load = async (tbName, orderBy) => {
     `SELECT * FROM $1 ORDER BY "${orderBy}" ASC `,
     table
   );
-  //console.log(qStr);
+
   try {
     const res = await db.any(qStr);
     return res;

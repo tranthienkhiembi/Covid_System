@@ -7,6 +7,7 @@ const express = require('express'),
 
 //hbs
 require('./middlewares/handlebars')(app);
+
 //session
 require('./middlewares/session')(app);
 
@@ -23,6 +24,7 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'images')));
+
 //passport
 require('./middlewares/passport')(app);
 
@@ -39,9 +41,9 @@ const key = fs.readFileSync('server.key', 'utf-8');
 const cert = fs.readFileSync('server.cert', 'utf-8');
 
 https.createServer({ key, cert }, app).listen(port, () => {
-    console.log(`Example app listening on port https://localhost:${port}`);
+    console.log(`Web port https://localhost:${port}`);
 });
 
 // app.listen(port, () => {
-//     console.log(`Example app listening on port http://localhost:${port}`);
+//     console.log(` port http://localhost:${port}`);
 // });
