@@ -137,7 +137,7 @@ router.get('/changePass', (req, res) => {
 router.get('/payment', async (req, res) => {
   if (!req.session.idPayment) return res.redirect('/');
   const data = {
-    ID: req.session.idPayment                          // TODO: need to be change with suitable data
+    ID: req.session.idPayment                          
   };
 
   const pricePackage = req.session.totalPrice;
@@ -154,7 +154,7 @@ router.get('/payment', async (req, res) => {
     active: { pay: true },
     balance: rs.money,
     Id: data.ID,
-    payment: Price,                   // TODO: need to be change with suitable data  
+    payment: Price,                     
     alert: '',
     isDonePayment: false
   });
@@ -190,14 +190,14 @@ router.post('/payment', async (req, res) => {
       active: { pay: true },
       balance: parseInt(newbalance),
       Id: req.body.Id,
-      payment: parseInt(newpayment),                   // TODO: need to be change with suitable data  
+      payment: parseInt(newpayment),                     
       alert: 'Please enter the full amount to pay!',
       money: money,
       isDonePayment: false
     });
   }
   const data = {
-    ID: req.session.idPayment,                         // TODO: need to be change with suitable data
+    ID: req.session.idPayment,                         
     money: parseInt(money),
   };
   const rs = await payModel.paymentPut(data, req.session.token);

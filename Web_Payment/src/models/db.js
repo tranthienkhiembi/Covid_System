@@ -5,8 +5,8 @@ const schema = "public";
 const cn = {
   user: "postgres",
   host: "localhost",
-  database: "paytest", // điền tên db 
-  password: "123456", // điền cái password master
+  database: "paytest", 
+  password: "123456", 
   port: 5432,
   max: 30,
 };
@@ -34,7 +34,7 @@ exports.loadPage = async (tbName, limit, offset, condition, orderBy) => {
     condition +
     ` ORDER BY "${orderBy}" ASC ` +
     ` LIMIT ${limit} OFFSET ${offset}`;
-  //console.log(qStr);
+
   try {
     const res = await db.any(qStr);
     return res;
@@ -63,7 +63,7 @@ exports.count = async (tbName, idFieldName, condition) => {
   const qStr =
     pgp.as.format(`SELECT count("${idFieldName}") AS "Size" FROM $1`, table) +
     condition;
-  //console.log(qStr);
+
   try {
     const res = await db.any(qStr);
     return res;
@@ -78,7 +78,7 @@ exports.get = async (tbName, fieldName, value) => {
     `SELECT * FROM $1 WHERE "${fieldName}"='${value}'`,
     table
   );
-  //console.log(qStr);
+
   try {
     const res = await db.any(qStr);
     return res;
@@ -90,7 +90,7 @@ exports.get = async (tbName, fieldName, value) => {
 exports.add = async (tbName, entity) => {
   const table = new pgp.helpers.TableName({ table: tbName, schema: schema });
   const qStr = pgp.helpers.insert(entity, null, table) + " RETURNING *";
-  //console.log(qStr);
+
   try {
     const res = await db.one(qStr);
     return res;
@@ -117,7 +117,7 @@ exports.del = async (tbName, condition) => {
   const table = new pgp.helpers.TableName({ table: tbName, schema: schema });
 
   const qStr = pgp.as.format(`DELETE FROM $1 `, table) + condition;
-  //console.log(qStr);
+
   try {
     const res = await db.any(qStr);
     return res;

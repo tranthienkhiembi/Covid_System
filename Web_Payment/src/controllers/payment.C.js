@@ -20,7 +20,7 @@ const putPayment = async (req, res, next) => {
       return res.status(200).json({ message: "success" });
     }
     res.status(400).json({ message: "Cannot update" });
-   
+  
   } catch (error) {
     console.log(error);
     return res.status(400).json({ message: "Cannot fetch data" });
@@ -37,7 +37,7 @@ const postPayment = async (req, res, next) => {
       });
     }
     res.status(400).json({ message: "Cannot get your money" });
-   
+  
   } catch (error) {
     console.log(error);
     return res.status(400).json({ message: "Cannot fetch data" });

@@ -34,7 +34,6 @@ INSERT INTO public."Account" ("ID", "Password", "Balance", "Role", "FirstActived
 
 
 
-
 ALTER TABLE ONLY public."Account"
     ADD CONSTRAINT "Account_pkey" PRIMARY KEY ("ID");
 

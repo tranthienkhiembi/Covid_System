@@ -24,7 +24,7 @@ module.exports = app => {
       }
     },
   });
-  //ok with static
+
   hbs.handlebars.registerHelper('select', function (selected, options) {
     return options.fn(this).replace(
       new RegExp(' value=\"' + selected + '\"'),

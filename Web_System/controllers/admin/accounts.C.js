@@ -153,7 +153,7 @@ router.get('/history', async (req, res) => {
 });
 
 router.get('/history/active', async (req, res) => {
-    //Kiểm tra login
+
     if (!req.user || req.user.Role != 2) 
         return res.redirect('/');
 

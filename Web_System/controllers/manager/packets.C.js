@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
       nameProduct[0].images = await productModel.loadImage(nameProduct[0].Id);
       nameProducts.push(nameProduct[0]);    
     }
-    // Lưu danh sách các sản phẩm có trong gói
+
     list[index].products = nameProducts;    
 
     var indexUnchecked = new Array();   
@@ -41,7 +41,7 @@ router.get('/', async (req, res) => {
       allProductsUnChecked.splice(element - minus, 1);
       minus++;
     });
-    // lưu danh sách các sản phẩm không nằm trong gói
+
     list[index].uncheckedProducts = allProductsUnChecked;     
   }
   
@@ -439,7 +439,7 @@ router.get('/filter/byCountLess5', async (req, res) => {
     });
     
     indexUnchecked.sort(compareNumbers);
- 
+
     var minus = 0;
     indexUnchecked.forEach(element => {
       allProductsUnChecked.splice(element - minus, 1);

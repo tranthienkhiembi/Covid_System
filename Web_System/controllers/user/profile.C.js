@@ -103,7 +103,7 @@ router.post('/', async (req, res) => {
     listMana[i].Username = await account.allById(listMana[i].IdManager);
   }
 
-  // Kiểm tra việc thanh toán đã hoàn thành chưa, nếu đã thanh toán thì sửa Inform
+  // Payment check
   const consumeOfUser = await paymentModel.getConsume(req.user.Id);
   const consumeOfUserPaid = await paymentModel.getConsumePaid(req.user.Id, 'Paid');
   var isInform = false;
@@ -160,7 +160,7 @@ router.post('/', async (req, res) => {
   const user = await userModel.get(req.user.Username);
   const challengeResult = await bcrypt.compare(newPass, user.Password);
 
-  //Trùng pass hiện tại
+  //Same password
   if (challengeResult)
     return res.render('user/profile/infor', {
       title: 'Internet Banking',

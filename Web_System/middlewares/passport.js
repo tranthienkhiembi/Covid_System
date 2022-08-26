@@ -16,7 +16,7 @@ module.exports = (app) => {
                 let user;
                 try {
                     user = await userM.get(username);
-                    //console.log(user);
+                    
                     if (parseInt(user.LockUp) === 1) {
                         return done(null, false, {
                             message: 'Account is locked!',

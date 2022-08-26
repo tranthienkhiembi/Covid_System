@@ -3,7 +3,7 @@ const express = require('express'),
     placeModel = require('../../models/admin/place.M');
 
 router.get('/', async (req, res) => {
-    //Kiểm tra login
+
     if (!req.user || req.user.Role != 2) return res.redirect('/');
 
     const limit = 6;
@@ -72,7 +72,7 @@ router.post('/add', async (req, res) => {
 });
 
 router.get('/edit', async (req, res) => {
-    //Kiểm tra login
+
     if (!req.user || req.user.Role != 2) return res.redirect('/');
 
     const page = +req.query.page || 1;

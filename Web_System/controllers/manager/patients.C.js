@@ -32,7 +32,7 @@ function generateIdAccountPayment() {
 }
 router.get('/', async (req, res) => {
     if (!req.user || parseInt(req.user.Role) != 3)
-      return res.redirect('/');
+    return res.redirect('/');
 
     const limit = 7;
     const page = +req.query.page || 1;
@@ -94,7 +94,7 @@ router.get('/', async (req, res) => {
 });
 router.get('/search', async (req, res) => {
     if (!req.user || parseInt(req.user.Role) != 3)
-      return res.redirect('/');
+    return res.redirect('/');
 
     const search = req.query.search;
 
@@ -333,16 +333,19 @@ router.post('/update/:id', async (req, res) => {
         IdPlace: req.body.place,
     };
     await patientModel.updateUserPlace(userPlace, req.params.id);
-    //update Amount
+    
+    //Amount
     const place = await patientModel.loadPlace(req.params.id);
     place.Amount = place.Amount + 1;
     await placeModel.updateAmountPlace(place, place.Id);
-    //update Status
+    
+    //Status
     const user = await patientModel.getOne(req.params.id);
     const changeStatus = user.Status - req.body.status;
     user.Status = req.body.status;
     await patientModel.updateUser(user, user.Id);
-    //update Related
+    
+    //Relation
     const userRelated = await patientModel.loadRelated(user.Id);
     const relatedReverse = await patientModel.loadRelatedReverse(user.Id);
     for (let i = 0; i < relatedReverse.length; i++) {
@@ -374,7 +377,8 @@ router.post('/update/:id', async (req, res) => {
         Place: place.Id,
     };
     await patientModel.addHistory(newHistory);
-    //update history related
+    
+    //History relation
     for (let i = 0; i < userRelated.length; i++) {
         const allHistoryUser = await patientModel.loadHistory(userRelated[i].Id);
         let oldHistory = {};

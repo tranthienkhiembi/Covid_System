@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
     });
     var newStatusArr = '[' + StatusArr.toString() + ']';
 
-    //Thống kê tiêu thụ các gói Nhu yếu phẩm
+    //Statistics of  Necessary packages
     const list = await packetModel.all();
     var isPackageEmpty = true;
     var packageConsume = new Array();
@@ -40,7 +40,7 @@ router.get('/', async (req, res) => {
 
     var newPackageArr = '[' + packageConsume.toString() + ']';
 
-    //Thống kê dư nợ, thanh toán
+    //Statistics of  debt, payment
     var isProductDebtEmpty = true;
     const Debt = await reportModel.countConsume();
     var countProduct = 0;

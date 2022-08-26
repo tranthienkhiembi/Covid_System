@@ -2,6 +2,7 @@ const db = require('../db');
 
 const tbName = 'Place';
 const idFieldName = 'Id';
+
 module.exports = {
     all: async () => {
         const res = await db.load(tbName, idFieldName);

@@ -1,6 +1,7 @@
 const db = require('../db');
 const tbName = 'HistoryManager';
 const idFieldName = 'IdHistory';
+
 module.exports = {
     getIdMax: async () => {
         const res = await db.IdMax(tbName, idFieldName);

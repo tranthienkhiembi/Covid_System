@@ -72,7 +72,7 @@ router.post('/signin', async (req, res, next) => {
             }
             delete user.Password;
 
-            //User: user.Role = 1
+            //User: Role = 1
             if (parseInt(user.Role) === 1) {
                 if (parseInt(user.FirstActive) === 0)
                     return res.redirect(`/changePass?user=${user.Username}`);
@@ -80,7 +80,7 @@ router.post('/signin', async (req, res, next) => {
                 return res.redirect('/user');
             }
 
-            //Admin: user.Role = 2
+            //Admin: Role = 2
             if (parseInt(user.Role) === 2) return res.redirect('/admin');
 
             const today = new Date();
@@ -123,7 +123,7 @@ router.post('/register', async (req, res) => {
     const pwd = req.body.password;
     const verifyPass = req.body.verifyPass;
     
-    //Kiểm tra độ dài tên tài khoản
+    //Check account name length
     if (username.length < 3 || username.length > 16)
         return res.render('signin/signin', {
             layout: false,
@@ -132,7 +132,7 @@ router.post('/register', async (req, res) => {
             errorUser: true,
         });
 
-    //Dùng để kiểm tra tên tài khoản
+    //Check account name
     const regexp = /^[a-z]([0-9a-z_\s])+$/i;
     if (!regexp.test(username))
         return res.render('signin/signin', {
@@ -142,7 +142,7 @@ router.post('/register', async (req, res) => {
             errorUser: true,
         });
 
-    //Kiểm tra độ dài pass
+    //Check pass length
     if (pwd.length < 5 || pwd.length > 16)
         return res.render('signin/signin', {
             layout: false,
@@ -150,7 +150,8 @@ router.post('/register', async (req, res) => {
             message: 'Passwords are word length [5, 16]',
             errorPass: true,
         });
-
+    
+    // VerifyPass
     if (verifyPass != pwd)
         return res.render('signin/signin', {
             layout: false,
@@ -274,7 +275,7 @@ router.get('/forgotPass', async (req, res) => {
 });
 
 router.post('/forgotPass', async (req, res) => {
-    //Không cần kiểm tra dữ liệu có thiếu hya không vì client có 'required'
+
 
     const user = await userModel.get(req.body.username);
     if (!user)
@@ -285,7 +286,7 @@ router.post('/forgotPass', async (req, res) => {
             message: 'Account name does not exist!',
         });
 
-    //Kiểm tra câu hỏi
+    //Secure question
     const challengeQuestion = await bcrypt.compare(
         req.body.securityQuestion,
         user.SecurityQuestion
@@ -298,7 +299,7 @@ router.post('/forgotPass', async (req, res) => {
             message: 'Wrong security question!',
         });
 
-    //Kiểm tra câu trả lời
+    //Check ans
     const challengeAnswer = await bcrypt.compare(
         req.body.securityAnswer,
         user.SecurityAnswer
@@ -311,7 +312,7 @@ router.post('/forgotPass', async (req, res) => {
             message: 'Wrong answer!',
         });
 
-    //Kiểm tra độ dài pass
+    //Check pass
     if (req.body.passNew.length < 5 || req.body.passNew.length > 16)
         return res.render('signin/forgotPass', {
             layout: false,
@@ -320,7 +321,7 @@ router.post('/forgotPass', async (req, res) => {
             message: 'The length of the pass in the segment [5, 16]!',
         });
 
-    //2 pass không khớp
+    //pass don't match
     if (req.body.VerifyPass !== req.body.passNew) {
         return res.render('signin/forgotPass', {
             layout: false,
@@ -371,10 +372,10 @@ router.post('/createSecurity', async (req, res) => {
     };
     const rs = await userModel.patchQues_Ans_Active(account);
     const user = await userModel.get(req.query.user);
-    //User: user.Role = 1
+    //User: Role = 1
     if (parseInt(user.Role) === 1) return res.redirect('/user');
 
-    //Manager: user.Role = 3
+    //Manager: Role = 3
     res.redirect('/manager');
 });
 module.exports = router;
